@@ -1,5 +1,5 @@
 function [] = run_crf_auto(cvi, RegParam1, RegParam2)
-    load consensus.may2014_modexpscaled2_srxtg500.insitu.cvdata.xdata.mat;
+    load data.mat;
     load dag_02122016.mat;
     addpath(genpath('./UGM'));
     nNodes = size(dag, 1);
@@ -202,7 +202,7 @@ function [] = run_crf_auto(cvi, RegParam1, RegParam2)
 
     
     %prediction
-    load consensus.may2014_modexpscaled2_srxtg500.insitu.cvdata.xdata.pred.mat;
+    load data.pred.mat;
     x = Xnodeall;
     addpath(genpath('/tigress/jzthree/Code/UGM'));
     nNodes = size(y, 2);
