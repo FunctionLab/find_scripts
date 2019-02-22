@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>RTW Report - matdiff_data.c </TITLE>
+</HEAD>
+<BODY BGCOLOR="#eeeeee" TEXT="#1122aa" ONLOAD="if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window);}">
+<P>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="100%" HEIGHT="100%"><TR><TD WIDTH="100%" VALIGN="top" BGCOLOR="#ffffff">
+<H4>File: <A HREF="file:///E:\Code\Matlab Kits\trivials\PrecisionRecallCurves-1.04\matlab\codegen\mex\matdiff\matdiff_data.c" TARGET="rtwreport_document_frame">E:\Code\Matlab Kits\trivials\PrecisionRecallCurves-1.04\matlab\codegen\mex\matdiff\matdiff_data.c</A></H4>
+<PRE id="RTWcode">
+<FONT COLOR="#888888"><I>    1   </I></FONT><FONT COLOR="#117755"><I>/*</I></FONT>
+<FONT COLOR="#888888"><I>    2   </I></FONT><FONT COLOR="#117755"><I> * matdiff_data.c</I></FONT>
+<FONT COLOR="#888888"><I>    3   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    4   </I></FONT><FONT COLOR="#117755"><I> * Code generation for function 'matdiff_data'</I></FONT>
+<FONT COLOR="#888888"><I>    5   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    6   </I></FONT><FONT COLOR="#117755"><I> * C source code generated on: Sun Sep 09 23:00:54 2012</I></FONT>
+<FONT COLOR="#888888"><I>    7   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    8   </I></FONT><FONT COLOR="#117755"><I> */</I></FONT>
+<FONT COLOR="#888888"><I>    9   </I></FONT>
+<FONT COLOR="#888888"><I>   10   </I></FONT><FONT COLOR="#117755"><I>/* Include files */</I></FONT>
+<FONT COLOR="#888888"><I>   11   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;rt_nonfinite.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   12   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;matdiff.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   13   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;matdiff_data.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   14   </I></FONT>
+<FONT COLOR="#888888"><I>   15   </I></FONT><FONT COLOR="#117755"><I>/* Type Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   16   </I></FONT>
+<FONT COLOR="#888888"><I>   17   </I></FONT><FONT COLOR="#117755"><I>/* Named Constants */</I></FONT>
+<FONT COLOR="#888888"><I>   18   </I></FONT>
+<FONT COLOR="#888888"><I>   19   </I></FONT><FONT COLOR="#117755"><I>/* Variable Declarations */</I></FONT>
+<FONT COLOR="#888888"><I>   20   </I></FONT>
+<FONT COLOR="#888888"><I>   21   </I></FONT><FONT COLOR="#117755"><I>/* Variable Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   22   </I></FONT>emlrtRSInfo <A NAME="var_d_emlrtRSI">d_emlrtRSI</A> = <B>{</B> 39, <FONT COLOR="#1122ff">&quot;find&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/elmat/find.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   23   </I></FONT>emlrtRSInfo <A NAME="var_s_emlrtRSI">s_emlrtRSI</A> = <B>{</B> 70, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   24   </I></FONT>emlrtRSInfo <A NAME="var_v_emlrtRSI">v_emlrtRSI</A> = <B>{</B> 205, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   25   </I></FONT>emlrtMCInfo <A NAME="var_emlrtMCI">emlrtMCI</A> = <B>{</B> 39, 1, <FONT COLOR="#1122ff">&quot;find&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/elmat/find.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   26   </I></FONT>emlrtMCInfo <A NAME="var_h_emlrtMCI">h_emlrtMCI</A> = <B>{</B> 74, 9, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   27   </I></FONT>emlrtMCInfo <A NAME="var_i_emlrtMCI">i_emlrtMCI</A> = <B>{</B> 71, 9, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   28   </I></FONT>emlrtMCInfo <A NAME="var_j_emlrtMCI">j_emlrtMCI</A> = <B>{</B> 208, 5, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   29   </I></FONT>emlrtMCInfo <A NAME="var_k_emlrtMCI">k_emlrtMCI</A> = <B>{</B> 206, 5, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   30   </I></FONT><A HREF="matdiff_types_h.html#type_matdiffStackData" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_matdiffStackData')" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">matdiffStackData</FONT></A> *matdiffStackDataLocal;
+<FONT COLOR="#888888"><I>   31   </I></FONT>
+<FONT COLOR="#888888"><I>   32   </I></FONT><FONT COLOR="#117755"><I>/* Function Declarations */</I></FONT>
+<FONT COLOR="#888888"><I>   33   </I></FONT>
+<FONT COLOR="#888888"><I>   34   </I></FONT><FONT COLOR="#117755"><I>/* Function Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   35   </I></FONT><FONT COLOR="#117755"><I>/* End of code generation (matdiff_data.c) */</I></FONT>
+<FONT COLOR="#888888"><I>   36   </I></FONT></PRE>
+</TD></TR></TABLE>
+</P>
+</BODY>
+</HTML>

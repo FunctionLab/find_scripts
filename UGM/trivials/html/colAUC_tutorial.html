@@ -1,0 +1,305 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Tutorial for colAUC Function and Package</title><meta name="generator" content="MATLAB 7.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2012-01-05"><meta name="DC.source" content="colAUC_tutorial.m"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head><body><div class="content"><h1>Tutorial for colAUC Function and Package</h1><!--introduction--><p><b>By Jarek Tuszynski</b></p><p>Function colAUC calculates Area under ROC curve (AUC) for a vector or for each column of a matrix.</p><p>The main properties of this code:</p><div><ul><li>Ability to work with multi-dimensional data.</li></ul></div><div><ul><li>Ability to work with multi-class datasets.</li></ul></div><div><ul><li>Speed - this code was written to calculate AUC's for large number of    features, fast.</li></ul></div><div><ul><li>Two different algorithms are provided one based on integrating ROC    curves and one based on Wilcoxon Rank Sum Test aka. Mann-Whitney U    Test.</li></ul></div><div><ul><li>Function can be used to plot ROC curves.</li></ul></div><p>See <a href="http://en.wikipedia.org/wiki/Receiver_operating_characteristic">http://en.wikipedia.org/wiki/Receiver_operating_characteristic</a></p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Change History</a></li><li><a href="#2">Licence</a></li><li><a href="#3">Read in test file</a></li><li><a href="#4">Convert it into 2-class label</a></li><li><a href="#5">Calculate 2-class AUC using by integration of ROC</a></li><li><a href="#6">Calculate 2-class AUC using "Wilcoxon rank sum test"</a></li><li><a href="#7">Calculate 2-class Gini coefficient</a></li><li><a href="#8">Plot ROC curves for all the features</a></li><li><a href="#9">Calculate 3-class AUC using by integration of ROC</a></li><li><a href="#10">Calculate 3-class AUC using "Wilcoxon rank sum test"</a></li><li><a href="#11">Plot 3-class ROC curves for feature #1</a></li><li><a href="#12">Plot 3-class ROC curves for the best feature, using numeric labels</a></li><li><a href="#13">Test on a dataset with 100 samples and 100,000 features</a></li><li><a href="#16">Show avrRank function</a></li></ul></div><h2>Change History<a name="1"></a></h2><div><ul><li>2005 - original code written in MATLAB and R. Only R version released          at <a href="http://cran.r-project.org/web/packages/caTools">http://cran.r-project.org/web/packages/caTools</a></li><li>2011-02-15 - Release of MATLAB version</li></ul></div><h2>Licence<a name="2"></a></h2><p>The package is distributed under BSD License</p><pre class="codeinput">format <span class="string">compact</span>; <span class="comment">% viewing preference</span>
+clear <span class="string">variables</span>;
+type(<span class="string">'license.txt'</span>)
+</pre><pre class="codeoutput">
+Copyright (c) 2011, Jaroslaw Tuszynski
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are 
+met:
+
+    * Redistributions of source code must retain the above copyright 
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright 
+      notice, this list of conditions and the following disclaimer in 
+      the documentation and/or other materials provided with the distribution
+      
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGE.
+
+</pre><h2>Read in test file<a name="3"></a></h2><p>Iris flower data set collected by Edgar Anderson to quantify the geographic variation of Iris flowers in the Gasp&eacute; Peninsula. <a href="http://en.wikipedia.org/wiki/Iris_flower_data_set">http://en.wikipedia.org/wiki/Iris_flower_data_set</a></p><pre class="codeinput">[~, ~, iris] = xlsread(<span class="string">'iris.csv'</span>);
+X = cell2mat(iris(2:end, 1:end-1));
+y = iris(2:end, end);
+colLabel = iris(1, 1:end-1);
+</pre><h2>Convert it into 2-class label<a name="4"></a></h2><pre class="codeinput">msk = strcmp(y,y{1});
+y2 = y;
+y2( msk) = y(1);
+y2(~msk) = {[<span class="string">'not '</span> y{1}]};
+</pre><h2>Calculate 2-class AUC using by integration of ROC<a name="5"></a></h2><pre class="codeinput">auc=colAUC(X,y2,<span class="string">'ROC'</span>);
+out = [colLabel; num2cell(auc)];
+disp(out);
+</pre><pre class="codeoutput">    'Sepal Length'    'Sepal Width'    'Petal Length'    'Petal Width'
+    [      0.9586]    [     0.8796]    [           1]    [          1]
+</pre><h2>Calculate 2-class AUC using "Wilcoxon rank sum test"<a name="6"></a></h2><pre class="codeinput">auc=colAUC(X,y2,<span class="string">'Wilcoxon'</span>);
+out = [colLabel; num2cell(auc)];
+disp(out);
+</pre><pre class="codeoutput">    'Sepal Length'    'Sepal Width'    'Petal Length'    'Petal Width'
+    [      0.9586]    [     0.8796]    [           1]    [          1]
+</pre><h2>Calculate 2-class Gini coefficient<a name="7"></a></h2><p>see <a href="http://en.wikipedia.org/wiki/Gini_index">http://en.wikipedia.org/wiki/Gini_index</a></p><pre class="codeinput">auc=colAUC(X,y2);
+out = [colLabel; num2cell(2*auc-1)];
+disp(out);
+</pre><pre class="codeoutput">    'Sepal Length'    'Sepal Width'    'Petal Length'    'Petal Width'
+    [      0.9172]    [     0.7592]    [           1]    [          1]
+</pre><h2>Plot ROC curves for all the features<a name="8"></a></h2><pre class="codeinput">colAUC(X,y2)
+legend(colLabel, <span class="string">'Location'</span>, <span class="string">'SouthEast'</span>);
+title(<span class="string">'ROC curves separating Setosa from other species of iris flowers'</span>)
+xlabel(<span class="string">'True Positive Rate'</span>);
+ylabel(<span class="string">'False Positive Rate'</span>);
+</pre><pre class="codeoutput">ans =
+    0.9586    0.8796    1.0000    1.0000
+</pre><img vspace="5" hspace="5" src="colAUC_tutorial_01.png" alt=""> <h2>Calculate 3-class AUC using by integration of ROC<a name="9"></a></h2><pre class="codeinput">[auc lab]=colAUC(X,y);
+rowLabel = textscan(sprintf(<span class="string">'%s vs. %s|'</span>, lab{:,1}, lab{:,2}), <span class="string">'%s'</span>, <span class="string">'Delimiter'</span>, <span class="string">'|'</span>);
+out = cellfun(@num2str,num2cell(auc),<span class="string">'UniformOutput'</span>, false);
+out = [[{<span class="string">''</span>}; rowLabel{1}], [colLabel; out]];
+format <span class="string">long</span>; disp(out); format <span class="string">short</span>;
+</pre><pre class="codeoutput">    ''                             'Sepal Length'    'Sepal Width'    'Petal Length'    'Petal Width'
+    'setosa vs. setosa'            '0.9326'          '0.9248'         '1'               '1'          
+    'versicolor vs. versicolor'    '0.9846'          '0.8344'         '1'               '1'          
+    'virginica vs. virginica'      '0.7896'          '0.6636'         '0.9822'          '0.9804'     
+</pre><h2>Calculate 3-class AUC using "Wilcoxon rank sum test"<a name="10"></a></h2><pre class="codeinput">auc=colAUC(X,y,<span class="string">'Wilcoxon'</span>);
+out = cellfun(@num2str,num2cell(auc),<span class="string">'UniformOutput'</span>, false);
+out = [[{<span class="string">''</span>}; rowLabel{1}], [colLabel; out]];
+format <span class="string">long</span>; disp(out); format <span class="string">short</span>;
+</pre><pre class="codeoutput">    ''                             'Sepal Length'    'Sepal Width'    'Petal Length'    'Petal Width'
+    'setosa vs. setosa'            '0.9326'          '0.9248'         '1'               '1'          
+    'versicolor vs. versicolor'    '0.9846'          '0.8344'         '1'               '1'          
+    'virginica vs. virginica'      '0.7896'          '0.6636'         '0.9822'          '0.9804'     
+</pre><h2>Plot 3-class ROC curves for feature #1<a name="11"></a></h2><pre class="codeinput">colAUC(X(:,1),y)
+title(<span class="string">'ROC curves separating species of iris flowers using sepal length'</span>)
+xlabel(<span class="string">'True Positive Rate'</span>);
+ylabel(<span class="string">'False Positive Rate'</span>);
+</pre><pre class="codeoutput">ans =
+    0.9326
+    0.9846
+    0.7896
+</pre><img vspace="5" hspace="5" src="colAUC_tutorial_02.png" alt=""> <h2>Plot 3-class ROC curves for the best feature, using numeric labels<a name="12"></a></h2><pre class="codeinput">[~, ~, numericLabels] = unique(y);
+[~, bestFeature] = max(mean(auc,1));
+colAUC(X(:,bestFeature),numericLabels)
+</pre><pre class="codeoutput">ans =
+    1.0000
+    1.0000
+    0.9822
+</pre><img vspace="5" hspace="5" src="colAUC_tutorial_03.png" alt=""> <h2>Test on a dataset with 100 samples and 100,000 features<a name="13"></a></h2><p>and show the distribution of resulting AUCs. This is to show the danger of using functions like colAUC to identify best features. In some cases that can lead to missleading results especially when working with datasets with much larger number of features than samples.</p><pre class="codeinput">n = 100;
+X = rand(n,100000); <span class="comment">% randomly distributed samples</span>
+y = ((1:n)&gt;n/2);    <span class="comment">% half of the samples split into 2 categories</span>
+tic; auc1=colAUC(X,y,<span class="string">'ROC'</span>); toc;
+hist(auc1,50);
+xlabel(<span class="string">'AUC per feature'</span>)
+title({<span class="string">'Distributiojn of AUCs per feature'</span>,<span class="string">'(Although most are random (~0.5) some features can be very good)'</span>})
+</pre><pre class="codeoutput">Elapsed time is 12.248096 seconds.
+</pre><img vspace="5" hspace="5" src="colAUC_tutorial_04.png" alt=""> <p><b>Same calculation using Wilcoxon algorithm</b> and make sure results are the same</p><pre class="codeinput">tic; auc2=colAUC(X,y,<span class="string">'Wilcoxon'</span>); toc;
+disp(max(auc1-auc2));
+</pre><pre class="codeoutput">Elapsed time is 10.315378 seconds.
+  2.2204e-016
+</pre><p><b>Look at 2 best features</b> With enough features one can usually find a set which can be used to separate 2 classes, even when all the numbers are random.</p><pre class="codeinput">[~, idx] = sort(auc1, <span class="string">'descend'</span>);
+scatter(X(:,idx(1)), X(:,idx(2)),[],y,<span class="string">'filled'</span>);
+</pre><img vspace="5" hspace="5" src="colAUC_tutorial_05.png" alt=""> <h2>Show avrRank function<a name="16"></a></h2><pre class="codeinput">x = round(rand(1,10)*5);
+r = avrRank(x);
+disp([x;r])
+</pre><pre class="codeoutput">         0    2.0000    1.0000    2.0000    3.0000    2.0000         0    1.0000    2.0000    2.0000
+    1.5000    7.0000    3.5000    7.0000   10.0000    7.0000    1.5000    3.5000    7.0000    7.0000
+</pre><p class="footer"><br>
+      Published with MATLAB&reg; 7.12<br></p></div><!--
+##### SOURCE BEGIN #####
+%% Tutorial for colAUC Function and Package
+% *By Jarek Tuszynski*
+% 
+% Function colAUC calculates Area under ROC curve (AUC) for a vector or for 
+% each column of a matrix. 
+%
+% The main properties of this code: 
+%
+% * Ability to work with multi-dimensional data.
+%
+% * Ability to work with multi-class datasets.
+%
+% * Speed - this code was written to calculate AUC's for large number of 
+%    features, fast.
+%
+% * Two different algorithms are provided one based on integrating ROC
+%    curves and one based on Wilcoxon Rank Sum Test aka. Mann-Whitney U
+%    Test.
+%
+% * Function can be used to plot ROC curves.
+%
+% See http://en.wikipedia.org/wiki/Receiver_operating_characteristic
+%
+%% Change History
+% * 2005 - original code written in MATLAB and R. Only R version released 
+%          at http://cran.r-project.org/web/packages/caTools
+% * 2011-02-15 - Release of MATLAB version
+
+%% Licence
+% The package is distributed under BSD License
+format compact; % viewing preference
+clear variables;
+type('license.txt')
+
+%% Read in test file
+% Iris flower data set collected by Edgar Anderson to quantify 
+% the geographic variation of Iris flowers in the Gaspé Peninsula.
+% http://en.wikipedia.org/wiki/Iris_flower_data_set
+[~, ~, iris] = xlsread('iris.csv'); 
+X = cell2mat(iris(2:end, 1:end-1));
+y = iris(2:end, end);
+colLabel = iris(1, 1:end-1);
+
+%% Convert it into 2-class label
+msk = strcmp(y,y{1});
+y2 = y;
+y2( msk) = y(1);
+y2(~msk) = {['not ' y{1}]};
+
+%% Calculate 2-class AUC using by integration of ROC 
+auc=colAUC(X,y2,'ROC');
+out = [colLabel; num2cell(auc)];
+disp(out); 
+
+%% Calculate 2-class AUC using "Wilcoxon rank sum test"
+auc=colAUC(X,y2,'Wilcoxon');
+out = [colLabel; num2cell(auc)];
+disp(out); 
+
+%% Calculate 2-class Gini coefficient
+% see http://en.wikipedia.org/wiki/Gini_index
+auc=colAUC(X,y2);
+out = [colLabel; num2cell(2*auc-1)];
+disp(out); 
+
+%% Plot ROC curves for all the features 
+colAUC(X,y2)
+legend(colLabel, 'Location', 'SouthEast');
+title('ROC curves separating Setosa from other species of iris flowers')
+xlabel('True Positive Rate');
+ylabel('False Positive Rate');
+
+%% Calculate 3-class AUC using by integration of ROC 
+[auc lab]=colAUC(X,y);
+rowLabel = textscan(sprintf('%s vs. %s|', lab{:,1}, lab{:,2}), '%s', 'Delimiter', '|');
+out = cellfun(@num2str,num2cell(auc),'UniformOutput', false);
+out = [[{''}; rowLabel{1}], [colLabel; out]];
+format long; disp(out); format short;
+
+%% Calculate 3-class AUC using "Wilcoxon rank sum test"
+auc=colAUC(X,y,'Wilcoxon');
+out = cellfun(@num2str,num2cell(auc),'UniformOutput', false);
+out = [[{''}; rowLabel{1}], [colLabel; out]];
+format long; disp(out); format short;
+
+%% Plot 3-class ROC curves for feature #1 
+colAUC(X(:,1),y)
+title('ROC curves separating species of iris flowers using sepal length')
+xlabel('True Positive Rate');
+ylabel('False Positive Rate');
+
+%% Plot 3-class ROC curves for the best feature, using numeric labels
+[~, ~, numericLabels] = unique(y); 
+[~, bestFeature] = max(mean(auc,1));
+colAUC(X(:,bestFeature),numericLabels)
+
+%% Test on a dataset with 100 samples and 100,000 features
+% and show the distribution of resulting AUCs. This is to show the danger
+% of using functions like colAUC to identify best features. In some cases
+% that can lead to missleading results especially when working with
+% datasets with much larger number of features than samples.
+n = 100;
+X = rand(n,100000); % randomly distributed samples
+y = ((1:n)>n/2);    % half of the samples split into 2 categories
+tic; auc1=colAUC(X,y,'ROC'); toc;
+hist(auc1,50);
+xlabel('AUC per feature')
+title({'Distributiojn of AUCs per feature','(Although most are random (~0.5) some features can be very good)'})
+
+%%
+% *Same calculation using Wilcoxon algorithm*
+% and make sure results are the same
+tic; auc2=colAUC(X,y,'Wilcoxon'); toc;
+disp(max(auc1-auc2));
+
+%%
+% *Look at 2 best features*
+% With enough features one can usually find a set which can be used to
+% separate 2 classes, even when all the numbers are random.
+[~, idx] = sort(auc1, 'descend');
+scatter(X(:,idx(1)), X(:,idx(2)),[],y,'filled');
+
+%% Show avrRank function
+x = round(rand(1,10)*5);
+r = avrRank(x);
+disp([x;r])
+##### SOURCE END #####
+--></body></html>

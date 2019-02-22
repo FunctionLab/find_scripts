@@ -1,0 +1,30 @@
+/*
+ * UGM_Infer_ConditionalC_terminate.c
+ *
+ * Code generation for function 'UGM_Infer_ConditionalC_terminate'
+ *
+ * C source code generated on: Sun Feb 16 17:36:25 2014
+ *
+ */
+
+/* Include files */
+#include "rt_nonfinite.h"
+#include "UGM_Infer_ConditionalC.h"
+#include "UGM_Infer_ConditionalC_terminate.h"
+
+/* Function Definitions */
+void UGM_Infer_ConditionalC_atexit(void)
+{
+  emlrtCreateRootTLS(&emlrtRootTLSGlobal, &emlrtContextGlobal, NULL, 1);
+  emlrtEnterRtStackR2012b(emlrtRootTLSGlobal);
+  emlrtLeaveRtStackR2012b(emlrtRootTLSGlobal);
+  emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
+}
+
+void UGM_Infer_ConditionalC_terminate(void)
+{
+  emlrtLeaveRtStackR2012b(emlrtRootTLSGlobal);
+  emlrtDestroyRootTLS(&emlrtRootTLSGlobal);
+}
+
+/* End of code generation (UGM_Infer_ConditionalC_terminate.c) */

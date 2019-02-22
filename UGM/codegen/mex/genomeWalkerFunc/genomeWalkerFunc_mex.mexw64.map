@@ -1,0 +1,293 @@
+ genomeWalkerFunc_mex
+
+ Timestamp is 504e5508 (Mon Sep 10 17:00:56 2012)
+
+ Preferred load address is 0000000180000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00004c34H .text                   CODE
+ 0001:00004c40 00000092H .text$x                 CODE
+ 0002:00000000 00000278H .idata$5                DATA
+ 0002:00000278 00000008H .CRT$XCA                DATA
+ 0002:00000280 00000008H .CRT$XCZ                DATA
+ 0002:00000288 00000008H .CRT$XIA                DATA
+ 0002:00000290 00000008H .CRT$XIAA               DATA
+ 0002:00000298 00000008H .CRT$XIZ                DATA
+ 0002:000002a0 0000010cH .rdata                  DATA
+ 0002:000003ac 0000006dH .rdata$debug            DATA
+ 0002:00000420 00000008H .rtc$IAA                DATA
+ 0002:00000428 00000008H .rtc$IZZ                DATA
+ 0002:00000430 00000008H .rtc$TAA                DATA
+ 0002:00000438 00000008H .rtc$TZZ                DATA
+ 0002:00000440 0000026cH .xdata                  DATA
+ 0002:000006ac 00000078H .idata$2                DATA
+ 0002:00000724 00000014H .idata$3                DATA
+ 0002:00000738 00000278H .idata$4                DATA
+ 0002:000009b0 00000614H .idata$6                DATA
+ 0002:00000fd0 000000c0H .edata                  DATA
+ 0003:00000000 00002328H .data                   DATA
+ 0003:00002330 000005c0H .bss                    DATA
+ 0004:00000000 000002b8H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base               Lib:Object
+
+ 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       __ImageBase                0000000180000000     <linker-defined>
+ 0001:00000000       genomeWalkerFunc           0000000180001000 f   genomeWalkerFunc.obj
+ 0001:000024b0       UGM_ConfigurationPotential 00000001800034b0 f   UGM_ConfigurationPotential.obj
+ 0001:000028b0       genomeWalkerFunc_initialize 00000001800038b0 f   genomeWalkerFunc_initialize.obj
+ 0001:000028e0       genomeWalkerFunc_atexit    00000001800038e0 f   genomeWalkerFunc_terminate.obj
+ 0001:00002900       genomeWalkerFunc_terminate 0000000180003900 f   genomeWalkerFunc_terminate.obj
+ 0001:00002920       genomeWalkerFunc_api       0000000180003920 f   genomeWalkerFunc_api.obj
+ 0001:00003790       b_emxInit_int32_T          0000000180004790 f   genomeWalkerFunc_emxutil.obj
+ 0001:000038a0       b_emxInit_real_T           00000001800048a0 f   genomeWalkerFunc_emxutil.obj
+ 0001:000039b0       emxEnsureCapacity          00000001800049b0 f   genomeWalkerFunc_emxutil.obj
+ 0001:00003b10       emxFree_boolean_T          0000000180004b10 f   genomeWalkerFunc_emxutil.obj
+ 0001:00003b80       emxFree_int32_T            0000000180004b80 f   genomeWalkerFunc_emxutil.obj
+ 0001:00003bf0       emxFree_real_T             0000000180004bf0 f   genomeWalkerFunc_emxutil.obj
+ 0001:00003c60       emxInit_boolean_T          0000000180004c60 f   genomeWalkerFunc_emxutil.obj
+ 0001:00003d70       emxInit_int32_T            0000000180004d70 f   genomeWalkerFunc_emxutil.obj
+ 0001:00003e80       emxInit_real_T             0000000180004e80 f   genomeWalkerFunc_emxutil.obj
+ 0001:00003f90       mexFunction                0000000180004f90 f   genomeWalkerFunc_mex.obj
+ 0001:000040f2       mxCreateCharArray_700      00000001800050f2 f   libmx:libmx.dll
+ 0001:000040f8       mxGetPr                    00000001800050f8 f   libmx:libmx.dll
+ 0001:000040fe       mxCreateNumericArray_700   00000001800050fe f   libmx:libmx.dll
+ 0001:00004104       mxCreateDoubleScalar       0000000180005104 f   libmx:libmx.dll
+ 0001:0000410a       mxGetData                  000000018000510a f   libmx:libmx.dll
+ 0001:00004110       mxFree                     0000000180005110 f   libmx:libmx.dll
+ 0001:00004116       mxCalloc                   0000000180005116 f   libmx:libmx.dll
+ 0001:0000411c       mexAtExit                  000000018000511c f   libmex:libmex.dll
+ 0001:00004122       mexErrMsgIdAndTxt          0000000180005122 f   libmex:libmex.dll
+ 0001:00004128       emlrtHeapReferenceStackLeaveFcn 0000000180005128 f   libemlrt:libemlrt.dll
+ 0001:0000412e       emlrtSubAssignSizeCheckR2011a 000000018000512e f   libemlrt:libemlrt.dll
+ 0001:00004134       emlrtSizeEqCheckNDR2011a   0000000180005134 f   libemlrt:libemlrt.dll
+ 0001:0000413a       emlrtBoundsCheckR2011a     000000018000513a f   libemlrt:libemlrt.dll
+ 0001:00004140       emlrtAssign                0000000180005140 f   libemlrt:libemlrt.dll
+ 0001:00004146       emlrtInitCharArray         0000000180005146 f   libemlrt:libemlrt.dll
+ 0001:0000414c       emlrtBreakCheck            000000018000514c f   libemlrt:libemlrt.dll
+ 0001:00004152       emlrtPopRtStack            0000000180005152 f   libemlrt:libemlrt.dll
+ 0001:00004158       emlrtPushRtStack           0000000180005158 f   libemlrt:libemlrt.dll
+ 0001:0000415e       emlrtDynamicBoundsCheckR2011a 000000018000515e f   libemlrt:libemlrt.dll
+ 0001:00004164       emlrtIntegerCheckR2011a    0000000180005164 f   libemlrt:libemlrt.dll
+ 0001:0000416a       emlrtNonNegativeCheckR2011a 000000018000516a f   libemlrt:libemlrt.dll
+ 0001:00004170       emlrtHeapReferenceStackEnterFcn 0000000180005170 f   libemlrt:libemlrt.dll
+ 0001:00004176       emlrtCallMATLAB            0000000180005176 f   libemlrt:libemlrt.dll
+ 0001:0000417c       emlrtFirstTime             000000018000517c f   libemlrt:libemlrt.dll
+ 0001:00004182       emlrtEnterRtStack          0000000180005182 f   libemlrt:libemlrt.dll
+ 0001:00004188       emlrtExitTimeCleanup       0000000180005188 f   libemlrt:libemlrt.dll
+ 0001:0000418e       emlrtLeaveRtStack          000000018000518e f   libemlrt:libemlrt.dll
+ 0001:00004194       emlrtAliasP                0000000180005194 f   libemlrt:libemlrt.dll
+ 0001:0000419a       emlrtDestroyArray          000000018000519a f   libemlrt:libemlrt.dll
+ 0001:000041a0       emlrtAlias                 00000001800051a0 f   libemlrt:libemlrt.dll
+ 0001:000041a6       emlrtImportArrayR2008b     00000001800051a6 f   libemlrt:libemlrt.dll
+ 0001:000041ac       emlrtCheckVsBuiltInR2011a  00000001800051ac f   libemlrt:libemlrt.dll
+ 0001:000041b2       emlrtCheckBuiltInR2011a    00000001800051b2 f   libemlrt:libemlrt.dll
+ 0001:000041b8       emlrtPushHeapReferenceStack 00000001800051b8 f   libemlrt:libemlrt.dll
+ 0001:000041be       emlrtHeapAllocationError   00000001800051be f   libemlrt:libemlrt.dll
+ 0001:000041c4       emlrtSizeMul               00000001800051c4 f   libemlrt:libemlrt.dll
+ 0001:000041ca       emlrtClearAllocCount       00000001800051ca f   libemlrt:libemlrt.dll
+ 0001:000041d0       emlrtReturnArrayR2009a     00000001800051d0 f   libemlrt:libemlrt.dll
+ 0001:000041d6       muDoubleScalarIsNaN        00000001800051d6 f   libmwmathutil:libmwmathutil.dll
+ 0001:000041dc       __GSHandlerCheckCommon     00000001800051dc f   MSVCRT:gshandler.obj
+ 0001:00004240       __GSHandlerCheck           0000000180005240 f   MSVCRT:gshandler.obj
+ 0001:00004270       __security_check_cookie    0000000180005270 f   MSVCRT:amdsecgs.obj
+ 0001:000042a0       __chkstk                   00000001800052a0 f   MSVCRT:chkstk.obj
+ 0001:000042a0       _alloca_probe              00000001800052a0     MSVCRT:chkstk.obj
+ 0001:000042ee       malloc                     00000001800052ee f   MSVCRT:MSVCR100.dll
+ 0001:000042f4       free                       00000001800052f4 f   MSVCRT:MSVCR100.dll
+ 0001:000042fa       memcpy                     00000001800052fa f   MSVCRT:MSVCR100.dll
+ 0001:00004300       calloc                     0000000180005300 f   MSVCRT:MSVCR100.dll
+ 0001:00004308       NtCurrentTeb               0000000180005308 f i MSVCRT:crtdll.obj
+ 0001:00004374       _CRT_INIT                  0000000180005374 f   MSVCRT:crtdll.obj
+ 0001:0000470c       _DllMainCRTStartup         000000018000570c f   MSVCRT:crtdll.obj
+ 0001:0000474c       __report_gsfailure         000000018000574c f   MSVCRT:gs_report.obj
+ 0001:00004898       __clean_type_info_names    0000000180005898 f   MSVCRT:tncleanup.obj
+ 0001:000048a4       _onexit                    00000001800058a4 f   MSVCRT:atonexit.obj
+ 0001:00004954       atexit                     0000000180005954 f   MSVCRT:atonexit.obj
+ 0001:0000496c       _RTC_Initialize            000000018000596c f   MSVCRT:_initsect_.obj
+ 0001:000049a4       _RTC_Terminate             00000001800059a4 f   MSVCRT:_initsect_.obj
+ 0001:000049dc       _malloc_crt                00000001800059dc f   MSVCRT:MSVCR100.dll
+ 0001:000049f0       _ValidateImageBase         00000001800059f0 f   MSVCRT:pesect.obj
+ 0001:00004a20       _FindPESection             0000000180005a20 f   MSVCRT:pesect.obj
+ 0001:00004a70       _IsNonwritableInCurrentImage 0000000180005a70 f   MSVCRT:pesect.obj
+ 0001:00004ab2       _initterm                  0000000180005ab2 f   MSVCRT:MSVCR100.dll
+ 0001:00004ab8       _initterm_e                0000000180005ab8 f   MSVCRT:MSVCR100.dll
+ 0001:00004abe       _encoded_null              0000000180005abe f   MSVCRT:MSVCR100.dll
+ 0001:00004ac4       _amsg_exit                 0000000180005ac4 f   MSVCRT:MSVCR100.dll
+ 0001:00004aca       __C_specific_handler       0000000180005aca f   MSVCRT:MSVCR100.dll
+ 0001:00004ad0       __CppXcptFilter            0000000180005ad0 f   MSVCRT:MSVCR100.dll
+ 0001:00004ad8       DllMain                    0000000180005ad8 f   MSVCRT:dllmain.obj
+ 0001:00004afc       __security_init_cookie     0000000180005afc f   MSVCRT:gs_support.obj
+ 0001:00004bb0       __crt_debugger_hook        0000000180005bb0 f   MSVCRT:MSVCR100.dll
+ 0001:00004bb6       __clean_type_info_names_internal 0000000180005bb6 f   MSVCRT:MSVCR100.dll
+ 0001:00004bbc       _unlock                    0000000180005bbc f   MSVCRT:MSVCR100.dll
+ 0001:00004bc2       __dllonexit                0000000180005bc2 f   MSVCRT:MSVCR100.dll
+ 0001:00004bc8       _lock                      0000000180005bc8 f   MSVCRT:MSVCR100.dll
+ 0001:00004bce       EncodePointer              0000000180005bce f   kernel32:KERNEL32.dll
+ 0001:00004bd4       DecodePointer              0000000180005bd4 f   kernel32:KERNEL32.dll
+ 0001:00004bda       Sleep                      0000000180005bda f   kernel32:KERNEL32.dll
+ 0001:00004be0       TerminateProcess           0000000180005be0 f   kernel32:KERNEL32.dll
+ 0001:00004be6       GetCurrentProcess          0000000180005be6 f   kernel32:KERNEL32.dll
+ 0001:00004bec       UnhandledExceptionFilter   0000000180005bec f   kernel32:KERNEL32.dll
+ 0001:00004bf2       SetUnhandledExceptionFilter 0000000180005bf2 f   kernel32:KERNEL32.dll
+ 0001:00004bf8       IsDebuggerPresent          0000000180005bf8 f   kernel32:KERNEL32.dll
+ 0001:00004bfe       RtlVirtualUnwind           0000000180005bfe f   kernel32:KERNEL32.dll
+ 0001:00004c04       RtlLookupFunctionEntry     0000000180005c04 f   kernel32:KERNEL32.dll
+ 0001:00004c0a       RtlCaptureContext          0000000180005c0a f   kernel32:KERNEL32.dll
+ 0001:00004c10       DisableThreadLibraryCalls  0000000180005c10 f   kernel32:KERNEL32.dll
+ 0001:00004c16       QueryPerformanceCounter    0000000180005c16 f   kernel32:KERNEL32.dll
+ 0001:00004c1c       GetTickCount               0000000180005c1c f   kernel32:KERNEL32.dll
+ 0001:00004c22       GetCurrentThreadId         0000000180005c22 f   kernel32:KERNEL32.dll
+ 0001:00004c28       GetCurrentProcessId        0000000180005c28 f   kernel32:KERNEL32.dll
+ 0001:00004c2e       GetSystemTimeAsFileTime    0000000180005c2e f   kernel32:KERNEL32.dll
+ 0002:00000000       __imp_GetSystemTimeAsFileTime 0000000180006000     kernel32:KERNEL32.dll
+ 0002:00000008       __imp_GetCurrentProcessId  0000000180006008     kernel32:KERNEL32.dll
+ 0002:00000010       __imp_GetCurrentThreadId   0000000180006010     kernel32:KERNEL32.dll
+ 0002:00000018       __imp_GetTickCount         0000000180006018     kernel32:KERNEL32.dll
+ 0002:00000020       __imp_QueryPerformanceCounter 0000000180006020     kernel32:KERNEL32.dll
+ 0002:00000028       __imp_DisableThreadLibraryCalls 0000000180006028     kernel32:KERNEL32.dll
+ 0002:00000030       __imp_RtlCaptureContext    0000000180006030     kernel32:KERNEL32.dll
+ 0002:00000038       __imp_RtlLookupFunctionEntry 0000000180006038     kernel32:KERNEL32.dll
+ 0002:00000040       __imp_RtlVirtualUnwind     0000000180006040     kernel32:KERNEL32.dll
+ 0002:00000048       __imp_IsDebuggerPresent    0000000180006048     kernel32:KERNEL32.dll
+ 0002:00000050       __imp_TerminateProcess     0000000180006050     kernel32:KERNEL32.dll
+ 0002:00000058       __imp_Sleep                0000000180006058     kernel32:KERNEL32.dll
+ 0002:00000060       __imp_DecodePointer        0000000180006060     kernel32:KERNEL32.dll
+ 0002:00000068       __imp_EncodePointer        0000000180006068     kernel32:KERNEL32.dll
+ 0002:00000070       __imp_UnhandledExceptionFilter 0000000180006070     kernel32:KERNEL32.dll
+ 0002:00000078       __imp_SetUnhandledExceptionFilter 0000000180006078     kernel32:KERNEL32.dll
+ 0002:00000080       __imp_GetCurrentProcess    0000000180006080     kernel32:KERNEL32.dll
+ 0002:00000088       \177KERNEL32_NULL_THUNK_DATA 0000000180006088     kernel32:KERNEL32.dll
+ 0002:00000090       __imp__onexit              0000000180006090     MSVCRT:MSVCR100.dll
+ 0002:00000098       __imp___dllonexit          0000000180006098     MSVCRT:MSVCR100.dll
+ 0002:000000a0       __imp__unlock              00000001800060a0     MSVCRT:MSVCR100.dll
+ 0002:000000a8       __imp___clean_type_info_names_internal 00000001800060a8     MSVCRT:MSVCR100.dll
+ 0002:000000b0       __imp___crt_debugger_hook  00000001800060b0     MSVCRT:MSVCR100.dll
+ 0002:000000b8       __imp___CppXcptFilter      00000001800060b8     MSVCRT:MSVCR100.dll
+ 0002:000000c0       __imp___C_specific_handler 00000001800060c0     MSVCRT:MSVCR100.dll
+ 0002:000000c8       __imp__amsg_exit           00000001800060c8     MSVCRT:MSVCR100.dll
+ 0002:000000d0       __imp__encoded_null        00000001800060d0     MSVCRT:MSVCR100.dll
+ 0002:000000d8       __imp__initterm_e          00000001800060d8     MSVCRT:MSVCR100.dll
+ 0002:000000e0       __imp__initterm            00000001800060e0     MSVCRT:MSVCR100.dll
+ 0002:000000e8       __imp__malloc_crt          00000001800060e8     MSVCRT:MSVCR100.dll
+ 0002:000000f0       __imp_calloc               00000001800060f0     MSVCRT:MSVCR100.dll
+ 0002:000000f8       __imp_memcpy               00000001800060f8     MSVCRT:MSVCR100.dll
+ 0002:00000100       __imp_free                 0000000180006100     MSVCRT:MSVCR100.dll
+ 0002:00000108       __imp_malloc               0000000180006108     MSVCRT:MSVCR100.dll
+ 0002:00000110       __imp__lock                0000000180006110     MSVCRT:MSVCR100.dll
+ 0002:00000118       \177MSVCR100_NULL_THUNK_DATA 0000000180006118     MSVCRT:MSVCR100.dll
+ 0002:00000120       __imp_emlrtHeapAllocationError 0000000180006120     libemlrt:libemlrt.dll
+ 0002:00000128       __imp_emlrtSizeMul         0000000180006128     libemlrt:libemlrt.dll
+ 0002:00000130       __imp_emlrtClearAllocCount 0000000180006130     libemlrt:libemlrt.dll
+ 0002:00000138       __imp_emlrtPushHeapReferenceStack 0000000180006138     libemlrt:libemlrt.dll
+ 0002:00000140       __imp_emlrtInitCharArray   0000000180006140     libemlrt:libemlrt.dll
+ 0002:00000148       __imp_emlrtAssign          0000000180006148     libemlrt:libemlrt.dll
+ 0002:00000150       __imp_emlrtCheckBuiltInR2011a 0000000180006150     libemlrt:libemlrt.dll
+ 0002:00000158       __imp_emlrtBreakCheck      0000000180006158     libemlrt:libemlrt.dll
+ 0002:00000160       __imp_emlrtImportArrayR2008b 0000000180006160     libemlrt:libemlrt.dll
+ 0002:00000168       __imp_emlrtAlias           0000000180006168     libemlrt:libemlrt.dll
+ 0002:00000170       __imp_emlrtDestroyArray    0000000180006170     libemlrt:libemlrt.dll
+ 0002:00000178       __imp_emlrtAliasP          0000000180006178     libemlrt:libemlrt.dll
+ 0002:00000180       __imp_emlrtLeaveRtStack    0000000180006180     libemlrt:libemlrt.dll
+ 0002:00000188       __imp_emlrtExitTimeCleanup 0000000180006188     libemlrt:libemlrt.dll
+ 0002:00000190       __imp_emlrtEnterRtStack    0000000180006190     libemlrt:libemlrt.dll
+ 0002:00000198       __imp_emlrtFirstTime       0000000180006198     libemlrt:libemlrt.dll
+ 0002:000001a0       __imp_emlrtCallMATLAB      00000001800061a0     libemlrt:libemlrt.dll
+ 0002:000001a8       __imp_emlrtHeapReferenceStackEnterFcn 00000001800061a8     libemlrt:libemlrt.dll
+ 0002:000001b0       __imp_emlrtNonNegativeCheckR2011a 00000001800061b0     libemlrt:libemlrt.dll
+ 0002:000001b8       __imp_emlrtIntegerCheckR2011a 00000001800061b8     libemlrt:libemlrt.dll
+ 0002:000001c0       __imp_emlrtDynamicBoundsCheckR2011a 00000001800061c0     libemlrt:libemlrt.dll
+ 0002:000001c8       __imp_emlrtPushRtStack     00000001800061c8     libemlrt:libemlrt.dll
+ 0002:000001d0       __imp_emlrtReturnArrayR2009a 00000001800061d0     libemlrt:libemlrt.dll
+ 0002:000001d8       __imp_emlrtPopRtStack      00000001800061d8     libemlrt:libemlrt.dll
+ 0002:000001e0       __imp_emlrtBoundsCheckR2011a 00000001800061e0     libemlrt:libemlrt.dll
+ 0002:000001e8       __imp_emlrtSizeEqCheckNDR2011a 00000001800061e8     libemlrt:libemlrt.dll
+ 0002:000001f0       __imp_emlrtSubAssignSizeCheckR2011a 00000001800061f0     libemlrt:libemlrt.dll
+ 0002:000001f8       __imp_emlrtHeapReferenceStackLeaveFcn 00000001800061f8     libemlrt:libemlrt.dll
+ 0002:00000200       __imp_emlrtCheckVsBuiltInR2011a 0000000180006200     libemlrt:libemlrt.dll
+ 0002:00000208       \177libemlrt_NULL_THUNK_DATA 0000000180006208     libemlrt:libemlrt.dll
+ 0002:00000210       __imp_mexErrMsgIdAndTxt    0000000180006210     libmex:libmex.dll
+ 0002:00000218       __imp_mexAtExit            0000000180006218     libmex:libmex.dll
+ 0002:00000220       \177libmex_NULL_THUNK_DATA 0000000180006220     libmex:libmex.dll
+ 0002:00000228       __imp_muDoubleScalarIsNaN  0000000180006228     libmwmathutil:libmwmathutil.dll
+ 0002:00000230       \177libmwmathutil_NULL_THUNK_DATA 0000000180006230     libmwmathutil:libmwmathutil.dll
+ 0002:00000238       __imp_mxCalloc             0000000180006238     libmx:libmx.dll
+ 0002:00000240       __imp_mxFree               0000000180006240     libmx:libmx.dll
+ 0002:00000248       __imp_mxGetData            0000000180006248     libmx:libmx.dll
+ 0002:00000250       __imp_mxCreateDoubleScalar 0000000180006250     libmx:libmx.dll
+ 0002:00000258       __imp_mxCreateNumericArray_700 0000000180006258     libmx:libmx.dll
+ 0002:00000260       __imp_mxGetPr              0000000180006260     libmx:libmx.dll
+ 0002:00000268       __imp_mxCreateCharArray_700 0000000180006268     libmx:libmx.dll
+ 0002:00000270       \177libmx_NULL_THUNK_DATA  0000000180006270     libmx:libmx.dll
+ 0002:00000278       __xc_a                     0000000180006278     MSVCRT:cinitexe.obj
+ 0002:00000280       __xc_z                     0000000180006280     MSVCRT:cinitexe.obj
+ 0002:00000288       __xi_a                     0000000180006288     MSVCRT:cinitexe.obj
+ 0002:00000298       __xi_z                     0000000180006298     MSVCRT:cinitexe.obj
+ 0002:00000350       __real@0000000000000000    0000000180006350     genomeWalkerFunc.obj
+ 0002:00000358       __real@3ff0000000000000    0000000180006358     genomeWalkerFunc.obj
+ 0002:00000360       __real@bff0000000000000    0000000180006360     genomeWalkerFunc.obj
+ 0002:00000380       _pRawDllMain               0000000180006380     MSVCRT:crtdll.obj
+ 0002:00000380       _pDefaultRawDllMain        0000000180006380     MSVCRT:crtdll.obj
+ 0002:00000398       ?ProcessDetach@NativeDll@<CrtImplementationDetails>@@0IB 0000000180006398     MSVCRT:tncleanup.obj
+ 0002:0000039c       ?ProcessAttach@NativeDll@<CrtImplementationDetails>@@0IB 000000018000639c     MSVCRT:tncleanup.obj
+ 0002:000003a0       ?ThreadAttach@NativeDll@<CrtImplementationDetails>@@0IB 00000001800063a0     MSVCRT:tncleanup.obj
+ 0002:000003a4       ?ThreadDetach@NativeDll@<CrtImplementationDetails>@@0IB 00000001800063a4     MSVCRT:tncleanup.obj
+ 0002:000003a8       ?ProcessVerifier@NativeDll@<CrtImplementationDetails>@@0IB 00000001800063a8     MSVCRT:tncleanup.obj
+ 0002:00000420       __rtc_iaa                  0000000180006420     MSVCRT:_initsect_.obj
+ 0002:00000428       __rtc_izz                  0000000180006428     MSVCRT:_initsect_.obj
+ 0002:00000430       __rtc_taa                  0000000180006430     MSVCRT:_initsect_.obj
+ 0002:00000438       __rtc_tzz                  0000000180006438     MSVCRT:_initsect_.obj
+ 0002:000006ac       __IMPORT_DESCRIPTOR_libmx  00000001800066ac     libmx:libmx.dll
+ 0002:000006c0       __IMPORT_DESCRIPTOR_libmex 00000001800066c0     libmex:libmex.dll
+ 0002:000006d4       __IMPORT_DESCRIPTOR_libemlrt 00000001800066d4     libemlrt:libemlrt.dll
+ 0002:000006e8       __IMPORT_DESCRIPTOR_libmwmathutil 00000001800066e8     libmwmathutil:libmwmathutil.dll
+ 0002:000006fc       __IMPORT_DESCRIPTOR_MSVCR100 00000001800066fc     MSVCRT:MSVCR100.dll
+ 0002:00000710       __IMPORT_DESCRIPTOR_KERNEL32 0000000180006710     kernel32:KERNEL32.dll
+ 0002:00000724       __NULL_IMPORT_DESCRIPTOR   0000000180006724     libmx:libmx.dll
+ 0003:00002200       emlrtContextGlobal         000000018000a200     genomeWalkerFunc_mex.obj
+ 0003:00002300       _fltused                   000000018000a300     MSVCRT:dllsupp.obj
+ 0003:00002308       __security_cookie          000000018000a308     MSVCRT:gs_cookie.obj
+ 0003:00002310       __security_cookie_complement 000000018000a310     MSVCRT:gs_cookie.obj
+ 0003:00002320       __native_dllmain_reason    000000018000a320     MSVCRT:natstart.obj
+ 0003:00002324       __native_vcclrit_reason    000000018000a324     MSVCRT:natstart.obj
+ 0003:000028b0       ?__type_info_root_node@@3U__type_info_node@@A 000000018000a8b0     MSVCRT:tncleanup.obj
+ 0003:000028c0       genomeWalkerFuncStackDataLocal 000000018000a8c0     <common>
+ 0003:000028c8       __native_startup_state     000000018000a8c8     <common>
+ 0003:000028d0       __native_startup_lock      000000018000a8d0     <common>
+ 0003:000028d8       __onexitend                000000018000a8d8     <common>
+ 0003:000028e0       __onexitbegin              000000018000a8e0     <common>
+ 0003:000028e8       __dyn_tls_init_callback    000000018000a8e8     <common>
+
+ entry point at        0001:0000470c
+
+ Static symbols
+
+ 0001:000023f0       error                      00000001800033f0 f   genomeWalkerFunc.obj
+ 0001:00002450       message                    0000000180003450 f   genomeWalkerFunc.obj
+ 0001:00002c40       b_emlrt_marshallOut        0000000180003c40 f   genomeWalkerFunc_api.obj
+ 0001:00002d40       c_emlrt_marshallIn         0000000180003d40 f   genomeWalkerFunc_api.obj
+ 0001:00002da0       c_emlrt_marshallOut        0000000180003da0 f   genomeWalkerFunc_api.obj
+ 0001:00002e40       d_emlrt_marshallIn         0000000180003e40 f   genomeWalkerFunc_api.obj
+ 0001:00002e90       d_emlrt_marshallOut        0000000180003e90 f   genomeWalkerFunc_api.obj
+ 0001:00002ee0       e_emlrt_marshallIn         0000000180003ee0 f   genomeWalkerFunc_api.obj
+ 0001:00002f40       emlrt_marshallIn           0000000180003f40 f   genomeWalkerFunc_api.obj
+ 0001:00002fa0       b_emlrt_marshallIn         0000000180003fa0 f   genomeWalkerFunc_api.obj
+ 0001:00002ff0       emlrt_marshallOut          0000000180003ff0 f   genomeWalkerFunc_api.obj
+ 0001:000030c0       f_emlrt_marshallIn         00000001800040c0 f   genomeWalkerFunc_api.obj
+ 0001:00003110       g_emlrt_marshallIn         0000000180004110 f   genomeWalkerFunc_api.obj
+ 0001:00003170       h_emlrt_marshallIn         0000000180004170 f   genomeWalkerFunc_api.obj
+ 0001:000031c0       i_emlrt_marshallIn         00000001800041c0 f   genomeWalkerFunc_api.obj
+ 0001:00003220       j_emlrt_marshallIn         0000000180004220 f   genomeWalkerFunc_api.obj
+ 0001:00003270       k_emlrt_marshallIn         0000000180004270 f   genomeWalkerFunc_api.obj
+ 0001:00003360       l_emlrt_marshallIn         0000000180004360 f   genomeWalkerFunc_api.obj
+ 0001:00003470       m_emlrt_marshallIn         0000000180004470 f   genomeWalkerFunc_api.obj
+ 0001:000035f0       n_emlrt_marshallIn         00000001800045f0 f   genomeWalkerFunc_api.obj
+ 0001:00003720       o_emlrt_marshallIn         0000000180004720 f   genomeWalkerFunc_api.obj
+ 0001:00003ff0       genomeWalkerFunc_mexFunction 0000000180004ff0 f   genomeWalkerFunc_mex.obj
+ 0001:00004314       pre_c_init                 0000000180005314 f   MSVCRT:crtdll.obj
+ 0001:000045d0       __DllMainCRTStartup        00000001800055d0 f   MSVCRT:crtdll.obj
+ 0001:00004c40       __DllMainCRTStartup$filt$0 0000000180005c40 f   MSVCRT:crtdll.obj
+ 0001:00004c70       __DllMainCRTStartup$fin$1  0000000180005c70 f   MSVCRT:crtdll.obj
+ 0001:00004c8a       _onexit$fin$0              0000000180005c8a f   MSVCRT:atonexit.obj
+ 0001:00004cb0       _IsNonwritableInCurrentImage$filt$0 0000000180005cb0 f   MSVCRT:pesect.obj

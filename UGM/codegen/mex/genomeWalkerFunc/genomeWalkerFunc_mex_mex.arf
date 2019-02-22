@@ -1,0 +1,8 @@
+libemlrt.lib
+libut.lib
+libmwblascompat32.lib
+libmwmathutil.lib
+/export:mexFunction
+/export:genomeWalkerFunc
+/export:genomeWalkerFunc_initialize
+/export:genomeWalkerFunc_terminate

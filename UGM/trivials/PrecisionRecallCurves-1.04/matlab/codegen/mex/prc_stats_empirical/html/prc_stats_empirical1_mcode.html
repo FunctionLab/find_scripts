@@ -1,0 +1,66 @@
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="1,1"> 1</a></span><span class="line"><span class="comment">% Computes empirical statistics based on classification output.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,2"> 2</a></span><span class="line"><span class="comment">% </span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,3"> 3</a></span><span class="line"><span class="comment">% Usage:</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,4"> 4</a></span><span class="line"><span class="comment">%     [TPR, FPR, PPV, AUC, AP] = prc_stats_empirical(targs, dvs)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,5"> 5</a></span><span class="line"><span class="comment">% </span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,6"> 6</a></span><span class="line"><span class="comment">% Arguments:</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,7"> 7</a></span><span class="line"><span class="comment">%     targs: true class labels (targets)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,8"> 8</a></span><span class="line"><span class="comment">%     dvs: decision values output by the classifier</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,9"> 9</a></span><span class="line"><span class="comment">% </span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,10">10</a></span><span class="line"><span class="comment">% Return values:</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,11">11</a></span><span class="line"><span class="comment">%     TPR: true positive rate (recall)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,12">12</a></span><span class="line"><span class="comment">%     FPR: false positive rate</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,13">13</a></span><span class="line"><span class="comment">%     PPV: positive predictive value (precision)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,14">14</a></span><span class="line"><span class="comment">%     AUC: area under the ROC curve</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,15">15</a></span><span class="line"><span class="comment">%     AP: area under the PR curve (average precision)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,16">16</a></span><span class="line"><span class="comment">% </span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,17">17</a></span><span class="line"><span class="comment">%     Each of these return vectors has length(desireds)+1 elements.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,18">18</a></span><span class="line"><span class="comment">% </span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,19">19</a></span><span class="line"><span class="comment">% Literature:</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,20">20</a></span><span class="line"><span class="comment">%     K.H. Brodersen, C.S. Ong, K.E. Stephan, J.M. Buhmann (2010). The</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,21">21</a></span><span class="line"><span class="comment">%     binormal assumption on precision-recall curves. In: Proceedings of</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,22">22</a></span><span class="line"><span class="comment">%     the 20th International Conference on Pattern Recognition (ICPR).</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,23">23</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="1,24">24</a></span><span class="line"><span class="comment">% Kay H. Brodersen &amp; Cheng Soon Ong, ETH Zurich, Switzerland</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,25">25</a></span><span class="line"><span class="comment">% $Id: prc_stats_empirical.m 5529 2010-04-22 21:10:32Z bkay $</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,26">26</a></span><span class="line"><span class="comment">% -------------------------------------------------------------------------</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,27">27</a></span><span class="line"><span class="keyword">function</span> [<span class="var type1" id="S2T21U3">TPR</span>, <span class="var type1" id="S3T22U4">FPR</span>, <span class="var type1" id="S4T23U5">PPV</span>, <span class="var type1" id="S5T24U6">AUC</span>, <span class="var type1" id="S6T25U7">AP</span>] = prc_stats_empirical(<span class="var type1" id="S7T1U10">targs</span>, <span class="var type1" id="S8T1U11">dvs</span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="1,28">28</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,29">29</a></span><span class="line">    <span class="comment">% Check input</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,30">30</a></span><span class="line">    assert(all(size(<span class="var type1" id="S7T1U20">targs</span>)==size(<span class="var type1" id="S8T1U23">dvs</span>)));</span></span>
+<span class="srcline"><span class="lineno"><a href="1,31">31</a></span><span class="line">    assert(all(<span class="var type1" id="S7T1U31">targs</span>==-1 | <span class="var type1" id="S7T1U35">targs</span>==1));</span></span>
+<span class="srcline"><span class="lineno"><a href="1,32">32</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,33">33</a></span><span class="line">    <span class="comment">% Sort decision values and true labels according to decision values</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,34">34</a></span><span class="line">    <span class="var type1" id="S12T7U39">n</span> = length(<span class="var type1" id="S8T1U42">dvs</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,35">35</a></span><span class="line">    [<span class="var type1" id="S14T13U46">dvs_sorted</span>,<span class="var type1" id="S15T13U47">idx</span>] = sort(<span class="var type1" id="S8T1U50">dvs</span>,<span class="string">'ascend'</span>); </span></span>
+<span class="srcline"><span class="lineno"><a href="1,36">36</a></span><span class="line">    <span class="var type1" id="S17T13U54">targs_sorted</span> = <span class="var type1" id="S7T1U56">targs</span>(<span class="var type1" id="S15T13U57">idx</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,37">37</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,38">38</a></span><span class="line">    <span class="comment">% Inititalize accumulators</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,39">39</a></span><span class="line">    <span class="var type2" id="S2T0U60">TPR</span> = repmat(NaN,1,<span class="var type1" id="S12T7U67">n</span>+1);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,40">40</a></span><span class="line">    <span class="var type2" id="S3T0U71">FPR</span> = repmat(NaN,1,<span class="var type1" id="S12T7U78">n</span>+1);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,41">41</a></span><span class="line">    <span class="var type2" id="S4T0U82">PPV</span> = repmat(NaN,1,<span class="var type1" id="S12T7U89">n</span>+1);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,42">42</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,43">43</a></span><span class="line">    <span class="comment">% Now slide the threshold along the decision values (the threshold</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,44">44</a></span><span class="line">    <span class="comment">% always lies in between two values; here, the threshold represents the</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,45">45</a></span><span class="line">    <span class="comment">% decision value immediately to the right of it)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,46">46</a></span><span class="line">    <span class="keyword">for</span> <span class="var type1" id="S20T7U93">thr</span> = 1:length(<span class="var type1" id="S14T13U99">dvs_sorted</span>)+1</span></span>
+<span class="srcline"><span class="lineno"><a href="1,47">47</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="1,48">48</a></span><span class="line">        <span class="var type1" id="S21T7U103">TP</span> = sum(<span class="var type1" id="S17T13U108">targs_sorted</span>(<span class="var type1" id="S20T7U110">thr</span>:end)&gt;0);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,49">49</a></span><span class="line">        <span class="var type1" id="S24T7U116">FN</span> = sum(<span class="var type1" id="S17T13U121">targs_sorted</span>(1:<span class="var type1" id="S20T7U125">thr</span>-1)&gt;0);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,50">50</a></span><span class="line">        <span class="var type1" id="S25T7U130">TN</span> = sum(<span class="var type1" id="S17T13U135">targs_sorted</span>(1:<span class="var type1" id="S20T7U139">thr</span>-1)&lt;0);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,51">51</a></span><span class="line">        <span class="var type1" id="S26T7U144">FP</span> = sum(<span class="var type1" id="S17T13U149">targs_sorted</span>(<span class="var type1" id="S20T7U151">thr</span>:end)&lt;0);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,52">52</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="1,53">53</a></span><span class="line">        <span class="var type2" id="S2T0U158">TPR</span>(<span class="var type2" id="S20T0U159">thr</span>) = <span class="var type1" id="S21T7U161">TP</span>/(<span class="var type1" id="S21T7U164">TP</span>+<span class="var type1" id="S24T7U165">FN</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,54">54</a></span><span class="line">        <span class="var type2" id="S3T0U169">FPR</span>(<span class="var type2" id="S20T0U170">thr</span>) = <span class="var type1" id="S26T7U172">FP</span>/(<span class="var type1" id="S26T7U175">FP</span>+<span class="var type1" id="S25T7U176">TN</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,55">55</a></span><span class="line">        <span class="var type2" id="S4T0U180">PPV</span>(<span class="var type2" id="S20T0U181">thr</span>) = <span class="var type1" id="S21T7U183">TP</span>/(<span class="var type1" id="S21T7U186">TP</span>+<span class="var type1" id="S26T7U187">FP</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="1,56">56</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,57">57</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,58">58</a></span><span class="line">    <span class="comment">% Compute empirical AUC</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,59">59</a></span><span class="line">    <span class="message fatal" id="M1F1C">[<span class="var type0" id="S27T0U191">tmp</span>,<span class="var type0" id="S27T0U192">tmp</span>,<span class="var type0" id="S27T0U193">tmp</span>,<span class="var type2" id="S5T0U194">AUC</span>] = perfcurve(<span class="var type1" id="S7T1U197">targs</span>,<span class="var type1" id="S8T1U198">dvs</span>,1)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="1,60">60</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,61">61</a></span><span class="line">    <span class="comment">% Compute empirical AP</span></span></span>
+<span class="srcline"><span class="lineno"><a href="1,62">62</a></span><span class="line">    <span class="var type2" id="S6T0U202">AP</span> = abs(trapz(<span class="var type2" id="S2T0U208">TPR</span>(~isnan(<span class="var type2" id="S4T0U212">PPV</span>)),<span class="var type2" id="S4T0U214">PPV</span>(~isnan(<span class="var type2" id="S4T0U218">PPV</span>))));</span></span>
+<span class="srcline"><span class="lineno"><a href="1,63">63</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="1,64">64</a></span><span class="line"><span class="keyword">end</span></span></span>
+</pre>

@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE>RTW Report - matdiff.c </TITLE>
+</HEAD>
+<BODY BGCOLOR="#eeeeee" TEXT="#1122aa" ONLOAD="if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window);}">
+<P>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="100%" HEIGHT="100%"><TR><TD WIDTH="100%" VALIGN="top" BGCOLOR="#ffffff">
+<H4>File: <A HREF="file:///E:\Code\Matlab Kits\trivials\PrecisionRecallCurves-1.04\matlab\codegen\mex\matdiff\matdiff.c" TARGET="rtwreport_document_frame">E:\Code\Matlab Kits\trivials\PrecisionRecallCurves-1.04\matlab\codegen\mex\matdiff\matdiff.c</A></H4>
+<PRE id="RTWcode">
+<FONT COLOR="#888888"><I>    1   </I></FONT><FONT COLOR="#117755"><I>/*</I></FONT>
+<FONT COLOR="#888888"><I>    2   </I></FONT><FONT COLOR="#117755"><I> * matdiff.c</I></FONT>
+<FONT COLOR="#888888"><I>    3   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    4   </I></FONT><FONT COLOR="#117755"><I> * Code generation for function 'matdiff'</I></FONT>
+<FONT COLOR="#888888"><I>    5   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    6   </I></FONT><FONT COLOR="#117755"><I> * C source code generated on: Sun Sep 09 23:00:54 2012</I></FONT>
+<FONT COLOR="#888888"><I>    7   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    8   </I></FONT><FONT COLOR="#117755"><I> */</I></FONT>
+<FONT COLOR="#888888"><I>    9   </I></FONT>
+<FONT COLOR="#888888"><I>   10   </I></FONT><FONT COLOR="#117755"><I>/* Include files */</I></FONT>
+<FONT COLOR="#888888"><I>   11   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;rt_nonfinite.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   12   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;matdiff.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   13   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;find.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   14   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;intersect.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   15   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;length.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   16   </I></FONT>
+<FONT COLOR="#888888"><I>   17   </I></FONT><FONT COLOR="#117755"><I>/* Type Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   18   </I></FONT>
+<FONT COLOR="#888888"><I>   19   </I></FONT><FONT COLOR="#117755"><I>/* Named Constants */</I></FONT>
+<FONT COLOR="#888888"><I>   20   </I></FONT>
+<FONT COLOR="#888888"><I>   21   </I></FONT><FONT COLOR="#117755"><I>/* Variable Declarations */</I></FONT>
+<FONT COLOR="#888888"><I>   22   </I></FONT>
+<FONT COLOR="#888888"><I>   23   </I></FONT><FONT COLOR="#117755"><I>/* Variable Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   24   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_emlrtRSI">emlrtRSI</A> = <B>{</B> 8, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   25   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_b_emlrtRSI">b_emlrtRSI</A> = <B>{</B> 9, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   26   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_c_emlrtRSI">c_emlrtRSI</A> = <B>{</B> 13, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   27   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_emlrtBCI">emlrtBCI</A> = <B>{</B> -1, -1, 5, 27, <FONT COLOR="#1122ff">&quot;all&quot;</FONT>, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   28   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_b_emlrtBCI">b_emlrtBCI</A> = <B>{</B> -1, -1, 7, 24, <FONT COLOR="#1122ff">&quot;train&quot;</FONT>, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   29   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_c_emlrtBCI">c_emlrtBCI</A> = <B>{</B> -1, -1, 9, 40, <FONT COLOR="#1122ff">&quot;train&quot;</FONT>, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   30   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_d_emlrtBCI">d_emlrtBCI</A> = <B>{</B> -1, -1, 9, 50, <FONT COLOR="#1122ff">&quot;all&quot;</FONT>, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   31   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_e_emlrtBCI">e_emlrtBCI</A> = <B>{</B> -1, -1, 10, 5, <FONT COLOR="#1122ff">&quot;isTest&quot;</FONT>, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   32   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_f_emlrtBCI">f_emlrtBCI</A> = <B>{</B> -1, -1, 10, 13, <FONT COLOR="#1122ff">&quot;temp&quot;</FONT>, <FONT COLOR="#1122ff">&quot;matdiff&quot;</FONT>, <FONT COLOR="#1122ff">&quot;E:/Data/Projects/Chromating/Finalize/lib/matdiff.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   33   </I></FONT>
+<FONT COLOR="#888888"><I>   34   </I></FONT><FONT COLOR="#117755"><I>/* Function Declarations */</I></FONT>
+<FONT COLOR="#888888"><I>   35   </I></FONT>
+<FONT COLOR="#888888"><I>   36   </I></FONT><FONT COLOR="#117755"><I>/* Function Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   37   </I></FONT>
+<FONT COLOR="#888888"><I>   38   </I></FONT><FONT COLOR="#117755"><I>/*</I></FONT>
+<FONT COLOR="#888888"><I>   39   </I></FONT><FONT COLOR="#117755"><I> * function [TestInd] =   matdiff(all,train)</I></FONT>
+<FONT COLOR="#888888"><I>   40   </I></FONT><FONT COLOR="#117755"><I> */</I></FONT>
+<FONT COLOR="#888888"><I>   41   </I></FONT><FONT COLOR="#112266"><B>void</B></FONT> <A NAME="fcn_matdiff">matdiff</A>(<A HREF="matdiff_types_h.html#type_matdiffStackData" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_matdiffStackData')" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">matdiffStackData</FONT></A> *SD, <FONT COLOR="#112266"><B>const</B></FONT> boolean_T all_data[15978598], <FONT COLOR="#112266"><B>const</B></FONT> int32_T all_sizes[2], <FONT COLOR="#112266"><B>const</B></FONT> boolean_T train_data[7989336], <FONT COLOR="#112266"><B>const</B></FONT> int32_T train_sizes[2], real_T TestInd_data[215927], int32_T TestInd_sizes[1])
+<FONT COLOR="#888888"><I>   42   </I></FONT><B>{</B>
+<FONT COLOR="#888888"><I>   43   </I></FONT>    int32_T b_all_sizes[2];
+<FONT COLOR="#888888"><I>   44   </I></FONT>    int32_T loop_ub;
+<FONT COLOR="#888888"><I>   45   </I></FONT>    int32_T i0;
+<FONT COLOR="#888888"><I>   46   </I></FONT>    real_T b_loop_ub;
+<FONT COLOR="#888888"><I>   47   </I></FONT>    int32_T isTest_sizes;
+<FONT COLOR="#888888"><I>   48   </I></FONT>    int32_T b_train_sizes[2];
+<FONT COLOR="#888888"><I>   49   </I></FONT>    int32_T i;
+<FONT COLOR="#888888"><I>   50   </I></FONT>    int32_T temp_sizes;
+<FONT COLOR="#888888"><I>   51   </I></FONT>    int32_T b_i;
+<FONT COLOR="#888888"><I>   52   </I></FONT>    int32_T c_train_sizes[2];
+<FONT COLOR="#888888"><I>   53   </I></FONT>    boolean_T b_train_data[74];
+<FONT COLOR="#888888"><I>   54   </I></FONT>    int32_T c_all_sizes[2];
+<FONT COLOR="#888888"><I>   55   </I></FONT>    int32_T ind_sizes;
+<FONT COLOR="#888888"><I>   56   </I></FONT>    real_T ind_data[1];
+<FONT COLOR="#888888"><I>   57   </I></FONT>    real_T junk_data[1];
+<FONT COLOR="#888888"><I>   58   </I></FONT>    boolean_T b_junk_data[74];
+<FONT COLOR="#888888"><I>   59   </I></FONT>    int32_T tmp_data[1];
+<FONT COLOR="#888888"><I>   60   </I></FONT>    <FONT COLOR="#117755"><I>/* 'matdiff:5' isTest = zeros(length(all(1,:)),1); */</I></FONT>
+<FONT COLOR="#888888"><I>   61   </I></FONT>    emlrtDynamicBoundsCheckR2011a(1, 1, all_sizes[0], &amp;<A HREF="matdiff_c.html#var_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>   62   </I></FONT>    b_all_sizes[0] = 1;
+<FONT COLOR="#888888"><I>   63   </I></FONT>    b_all_sizes[1] = all_sizes[1];
+<FONT COLOR="#888888"><I>   64   </I></FONT>    loop_ub = all_sizes[1] - 1;
+<FONT COLOR="#888888"><I>   65   </I></FONT>    <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= loop_ub; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>   66   </I></FONT>        SD-&gt;f1.b_all_data[i0] = all_data[all_sizes[0] * i0];
+<FONT COLOR="#888888"><I>   67   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>   68   </I></FONT>    b_loop_ub = <A HREF="length_c.html#fcn_length" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_length');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">length</FONT></A>(SD-&gt;f1.b_all_data, b_all_sizes);
+<FONT COLOR="#888888"><I>   69   </I></FONT>    isTest_sizes = (int32_T)b_loop_ub;
+<FONT COLOR="#888888"><I>   70   </I></FONT>    loop_ub = (int32_T)b_loop_ub - 1;
+<FONT COLOR="#888888"><I>   71   </I></FONT>    <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= loop_ub; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>   72   </I></FONT>        SD-&gt;f1.isTest_data[i0] = 0;
+<FONT COLOR="#888888"><I>   73   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>   74   </I></FONT>    <FONT COLOR="#117755"><I>/* 'matdiff:7' for i = 1:length(train(1,:)) */</I></FONT>
+<FONT COLOR="#888888"><I>   75   </I></FONT>    emlrtDynamicBoundsCheckR2011a(1, 1, train_sizes[0], &amp;<A HREF="matdiff_c.html#var_b_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_b_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">b_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>   76   </I></FONT>    b_train_sizes[0] = 1;
+<FONT COLOR="#888888"><I>   77   </I></FONT>    b_train_sizes[1] = train_sizes[1];
+<FONT COLOR="#888888"><I>   78   </I></FONT>    loop_ub = train_sizes[1] - 1;
+<FONT COLOR="#888888"><I>   79   </I></FONT>    <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= loop_ub; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>   80   </I></FONT>        SD-&gt;f1.b_all_data[i0] = train_data[train_sizes[0] * i0];
+<FONT COLOR="#888888"><I>   81   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>   82   </I></FONT>    b_loop_ub = <A HREF="length_c.html#fcn_length" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_length');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">length</FONT></A>(SD-&gt;f1.b_all_data, b_train_sizes);
+<FONT COLOR="#888888"><I>   83   </I></FONT>    i = 1;
+<FONT COLOR="#888888"><I>   84   </I></FONT>    <FONT COLOR="#112266"><B>while</B></FONT> ((real_T)i &lt;= b_loop_ub) <B>{</B>
+<FONT COLOR="#888888"><I>   85   </I></FONT>        <FONT COLOR="#117755"><I>/* 'matdiff:8' temp = find(isTest~=1); */</I></FONT>
+<FONT COLOR="#888888"><I>   86   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="matdiff_c.html#var_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>   87   </I></FONT>        loop_ub = isTest_sizes - 1;
+<FONT COLOR="#888888"><I>   88   </I></FONT>        <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= loop_ub; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>   89   </I></FONT>            SD-&gt;f1.b_all_data[i0] = (SD-&gt;f1.isTest_data[i0] != 1);
+<FONT COLOR="#888888"><I>   90   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>   91   </I></FONT>        <A HREF="find_c.html#fcn_find" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_find');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">find</FONT></A>(SD, SD-&gt;f1.b_all_data, *(int32_T (*)[1])&amp;isTest_sizes, SD-&gt;f1.temp_data, &amp;temp_sizes);
+<FONT COLOR="#888888"><I>   92   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="matdiff_c.html#var_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>   93   </I></FONT>        <FONT COLOR="#117755"><I>/* 'matdiff:9' [junk,junk,ind] =intersect(train(:,i)',all(:,temp)','rows'); */</I></FONT>
+<FONT COLOR="#888888"><I>   94   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="matdiff_c.html#var_b_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_b_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">b_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>   95   </I></FONT>        b_i = emlrtDynamicBoundsCheckR2011a(i, 1, train_sizes[1], &amp;<A HREF="matdiff_c.html#var_c_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>   96   </I></FONT>        c_train_sizes[0] = 1;
+<FONT COLOR="#888888"><I>   97   </I></FONT>        c_train_sizes[1] = train_sizes[0];
+<FONT COLOR="#888888"><I>   98   </I></FONT>        loop_ub = train_sizes[0] - 1;
+<FONT COLOR="#888888"><I>   99   </I></FONT>        <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= loop_ub; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>  100   </I></FONT>            b_train_data[i0] = train_data[i0 + train_sizes[0] * (b_i - 1)];
+<FONT COLOR="#888888"><I>  101   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  102   </I></FONT>        c_all_sizes[0] = temp_sizes;
+<FONT COLOR="#888888"><I>  103   </I></FONT>        c_all_sizes[1] = all_sizes[0];
+<FONT COLOR="#888888"><I>  104   </I></FONT>        loop_ub = all_sizes[0] - 1;
+<FONT COLOR="#888888"><I>  105   </I></FONT>        <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= loop_ub; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>  106   </I></FONT>            b_i = temp_sizes - 1;
+<FONT COLOR="#888888"><I>  107   </I></FONT>            <FONT COLOR="#112266"><B>for</B></FONT> (ind_sizes = 0; ind_sizes &lt;= b_i; ind_sizes++) <B>{</B>
+<FONT COLOR="#888888"><I>  108   </I></FONT>                SD-&gt;f1.all_data[ind_sizes + c_all_sizes[0] * i0] = all_data[i0 + all_sizes[0] * (emlrtDynamicBoundsCheckR2011a((int32_T)SD-&gt;f1.temp_data[ind_sizes], 1, all_sizes[1], &amp;<A HREF="matdiff_c.html#var_d_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_d_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">d_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>) - 1)];
+<FONT COLOR="#888888"><I>  109   </I></FONT>            <B>}</B>
+<FONT COLOR="#888888"><I>  110   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  111   </I></FONT>        <A HREF="intersect_c.html#fcn_intersect" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_intersect');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">intersect</FONT></A>(b_train_data, c_train_sizes, SD-&gt;f1.all_data, c_all_sizes, b_junk_data, b_all_sizes, junk_data, &amp;b_i, ind_data, &amp;ind_sizes);
+<FONT COLOR="#888888"><I>  112   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="matdiff_c.html#var_b_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_b_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">b_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  113   </I></FONT>        <FONT COLOR="#117755"><I>/* 'matdiff:10' isTest( temp (ind)  ) =1; */</I></FONT>
+<FONT COLOR="#888888"><I>  114   </I></FONT>        b_i = ind_sizes - 1;
+<FONT COLOR="#888888"><I>  115   </I></FONT>        loop_ub = ind_sizes - 1;
+<FONT COLOR="#888888"><I>  116   </I></FONT>        <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= loop_ub; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>  117   </I></FONT>            tmp_data[i0] = emlrtDynamicBoundsCheckR2011a((int32_T)SD-&gt;f1.temp_data[emlrtDynamicBoundsCheckR2011a((int32_T)ind_data[i0], 1, temp_sizes, &amp;<A HREF="matdiff_c.html#var_f_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_f_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">f_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>) - 1], 1, isTest_sizes, &amp;<A HREF="matdiff_c.html#var_e_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">e_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  118   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  119   </I></FONT>        <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= b_i; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>  120   </I></FONT>            SD-&gt;f1.isTest_data[tmp_data[i0] - 1] = 1;
+<FONT COLOR="#888888"><I>  121   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  122   </I></FONT>        i++;
+<FONT COLOR="#888888"><I>  123   </I></FONT>        emlrtBreakCheck();
+<FONT COLOR="#888888"><I>  124   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  125   </I></FONT>    <FONT COLOR="#117755"><I>/* 'matdiff:13' TestInd= find(isTest~=1); */</I></FONT>
+<FONT COLOR="#888888"><I>  126   </I></FONT>    EMLRTPUSHRTSTACK(&amp;<A HREF="matdiff_c.html#var_c_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  127   </I></FONT>    loop_ub = isTest_sizes - 1;
+<FONT COLOR="#888888"><I>  128   </I></FONT>    <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= loop_ub; i0++) <B>{</B>
+<FONT COLOR="#888888"><I>  129   </I></FONT>        SD-&gt;f1.b_all_data[i0] = (SD-&gt;f1.isTest_data[i0] != 1);
+<FONT COLOR="#888888"><I>  130   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  131   </I></FONT>    <A HREF="find_c.html#fcn_find" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_find');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">find</FONT></A>(SD, SD-&gt;f1.b_all_data, *(int32_T (*)[1])&amp;isTest_sizes, TestInd_data, TestInd_sizes);
+<FONT COLOR="#888888"><I>  132   </I></FONT>    EMLRTPOPRTSTACK(&amp;<A HREF="matdiff_c.html#var_c_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  133   </I></FONT><B>}</B>
+<FONT COLOR="#888888"><I>  134   </I></FONT><FONT COLOR="#117755"><I>/* End of code generation (matdiff.c) */</I></FONT>
+<FONT COLOR="#888888"><I>  135   </I></FONT></PRE>
+</TD></TR></TABLE>
+</P>
+</BODY>
+</HTML>

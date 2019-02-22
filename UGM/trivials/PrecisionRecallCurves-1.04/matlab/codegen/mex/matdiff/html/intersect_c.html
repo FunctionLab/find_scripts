@@ -1,0 +1,453 @@
+<HTML>
+<HEAD>
+<TITLE>RTW Report - intersect.c </TITLE>
+</HEAD>
+<BODY BGCOLOR="#eeeeee" TEXT="#1122aa" ONLOAD="if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window);}">
+<P>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="100%" HEIGHT="100%"><TR><TD WIDTH="100%" VALIGN="top" BGCOLOR="#ffffff">
+<H4>File: <A HREF="file:///E:\Code\Matlab Kits\trivials\PrecisionRecallCurves-1.04\matlab\codegen\mex\matdiff\intersect.c" TARGET="rtwreport_document_frame">E:\Code\Matlab Kits\trivials\PrecisionRecallCurves-1.04\matlab\codegen\mex\matdiff\intersect.c</A></H4>
+<PRE id="RTWcode">
+<FONT COLOR="#888888"><I>    1   </I></FONT><FONT COLOR="#117755"><I>/*</I></FONT>
+<FONT COLOR="#888888"><I>    2   </I></FONT><FONT COLOR="#117755"><I> * intersect.c</I></FONT>
+<FONT COLOR="#888888"><I>    3   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    4   </I></FONT><FONT COLOR="#117755"><I> * Code generation for function 'intersect'</I></FONT>
+<FONT COLOR="#888888"><I>    5   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    6   </I></FONT><FONT COLOR="#117755"><I> * C source code generated on: Sun Sep 09 23:00:54 2012</I></FONT>
+<FONT COLOR="#888888"><I>    7   </I></FONT><FONT COLOR="#117755"><I> *</I></FONT>
+<FONT COLOR="#888888"><I>    8   </I></FONT><FONT COLOR="#117755"><I> */</I></FONT>
+<FONT COLOR="#888888"><I>    9   </I></FONT>
+<FONT COLOR="#888888"><I>   10   </I></FONT><FONT COLOR="#117755"><I>/* Include files */</I></FONT>
+<FONT COLOR="#888888"><I>   11   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;rt_nonfinite.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   12   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;matdiff.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   13   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;intersect.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   14   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;find.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   15   </I></FONT><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;matdiff_mexutil.h&quot;</FONT>
+<FONT COLOR="#888888"><I>   16   </I></FONT>
+<FONT COLOR="#888888"><I>   17   </I></FONT><FONT COLOR="#117755"><I>/* Type Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   18   </I></FONT>
+<FONT COLOR="#888888"><I>   19   </I></FONT><FONT COLOR="#117755"><I>/* Named Constants */</I></FONT>
+<FONT COLOR="#888888"><I>   20   </I></FONT>
+<FONT COLOR="#888888"><I>   21   </I></FONT><FONT COLOR="#117755"><I>/* Variable Declarations */</I></FONT>
+<FONT COLOR="#888888"><I>   22   </I></FONT>
+<FONT COLOR="#888888"><I>   23   </I></FONT><FONT COLOR="#117755"><I>/* Variable Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   24   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_f_emlrtRSI">f_emlrtRSI</A> = <B>{</B> 28, <FONT COLOR="#1122ff">&quot;intersect&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/intersect.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   25   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_g_emlrtRSI">g_emlrtRSI</A> = <B>{</B> 63, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   26   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_h_emlrtRSI">h_emlrtRSI</A> = <B>{</B> 516, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   27   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_i_emlrtRSI">i_emlrtRSI</A> = <B>{</B> 513, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   28   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_j_emlrtRSI">j_emlrtRSI</A> = <B>{</B> 492, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   29   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_k_emlrtRSI">k_emlrtRSI</A> = <B>{</B> 401, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   30   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_l_emlrtRSI">l_emlrtRSI</A> = <B>{</B> 394, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   31   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_m_emlrtRSI">m_emlrtRSI</A> = <B>{</B> 378, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   32   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_n_emlrtRSI">n_emlrtRSI</A> = <B>{</B> 377, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   33   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_o_emlrtRSI">o_emlrtRSI</A> = <B>{</B> 374, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   34   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_p_emlrtRSI">p_emlrtRSI</A> = <B>{</B> 328, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   35   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_q_emlrtRSI">q_emlrtRSI</A> = <B>{</B> 32, <FONT COLOR="#1122ff">&quot;issorted&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/datafun/issorted.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   36   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_r_emlrtRSI">r_emlrtRSI</A> = <B>{</B> 21, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   37   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_t_emlrtRSI">t_emlrtRSI</A> = <B>{</B> 75, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   38   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_u_emlrtRSI">u_emlrtRSI</A> = <B>{</B> 98, <FONT COLOR="#1122ff">&quot;colon&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/colon.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   39   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_w_emlrtRSI">w_emlrtRSI</A> = <B>{</B> 32, <FONT COLOR="#1122ff">&quot;issorted&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/datafun/issorted.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   40   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_x_emlrtRSI">x_emlrtRSI</A> = <B>{</B> 35, <FONT COLOR="#1122ff">&quot;issorted&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/datafun/issorted.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   41   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtRSInfo <A NAME="var_y_emlrtRSI">y_emlrtRSI</A> = <B>{</B> 15, <FONT COLOR="#1122ff">&quot;eml_error&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/eml/eml_error.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   42   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtMCInfo <A NAME="var_c_emlrtMCI">c_emlrtMCI</A> = <B>{</B> 329, 5, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   43   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtMCInfo <A NAME="var_d_emlrtMCI">d_emlrtMCI</A> = <B>{</B> 328, 15, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   44   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtMCInfo <A NAME="var_e_emlrtMCI">e_emlrtMCI</A> = <B>{</B> 492, 1, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   45   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtMCInfo <A NAME="var_f_emlrtMCI">f_emlrtMCI</A> = <B>{</B> 513, 1, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   46   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtMCInfo <A NAME="var_g_emlrtMCI">g_emlrtMCI</A> = <B>{</B> 516, 5, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   47   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtMCInfo <A NAME="var_l_emlrtMCI">l_emlrtMCI</A> = <B>{</B> 15, 19, <FONT COLOR="#1122ff">&quot;eml_error&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/eml/eml_error.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   48   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtMCInfo <A NAME="var_m_emlrtMCI">m_emlrtMCI</A> = <B>{</B> 15, 5, <FONT COLOR="#1122ff">&quot;eml_error&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/eml/eml_error.m&quot;</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   49   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_k_emlrtBCI">k_emlrtBCI</A> = <B>{</B> -1, -1, 517, 13, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   50   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_l_emlrtBCI">l_emlrtBCI</A> = <B>{</B> -1, -1, 517, 13, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   51   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_m_emlrtBCI">m_emlrtBCI</A> = <B>{</B> -1, -1, 514, 9, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   52   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_n_emlrtBCI">n_emlrtBCI</A> = <B>{</B> -1, -1, 514, 9, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   53   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_o_emlrtBCI">o_emlrtBCI</A> = <B>{</B> -1, -1, 507, 11, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   54   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_p_emlrtBCI">p_emlrtBCI</A> = <B>{</B> -1, -1, 507, 11, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   55   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_q_emlrtBCI">q_emlrtBCI</A> = <B>{</B> -1, -1, 30, 14, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_sort_le&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/eml/eml_sort_le.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   56   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_r_emlrtBCI">r_emlrtBCI</A> = <B>{</B> -1, -1, 29, 14, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_sort_le&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/eml/eml_sort_le.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   57   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_s_emlrtBCI">s_emlrtBCI</A> = <B>{</B> -1, -1, 26, 16, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_sort_le&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/eml/eml_sort_le.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   58   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_t_emlrtBCI">t_emlrtBCI</A> = <B>{</B> -1, -1, 304, 26, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   59   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_u_emlrtBCI">u_emlrtBCI</A> = <B>{</B> -1, -1, 304, 31, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   60   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_v_emlrtBCI">v_emlrtBCI</A> = <B>{</B> -1, -1, 304, 36, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   61   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_w_emlrtBCI">w_emlrtBCI</A> = <B>{</B> -1, -1, 304, 41, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   62   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_x_emlrtBCI">x_emlrtBCI</A> = <B>{</B> -1, -1, 305, 30, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   63   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_y_emlrtBCI">y_emlrtBCI</A> = <B>{</B> -1, -1, 305, 35, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   64   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_ab_emlrtBCI">ab_emlrtBCI</A> = <B>{</B> -1, -1, 305, 40, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   65   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_bb_emlrtBCI">bb_emlrtBCI</A> = <B>{</B> -1, -1, 305, 45, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   66   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_cb_emlrtBCI">cb_emlrtBCI</A> = <B>{</B> -1, -1, 408, 13, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   67   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_db_emlrtBCI">db_emlrtBCI</A> = <B>{</B> -1, -1, 409, 13, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   68   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_eb_emlrtBCI">eb_emlrtBCI</A> = <B>{</B> -1, -1, 406, 19, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   69   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_fb_emlrtBCI">fb_emlrtBCI</A> = <B>{</B> -1, -1, 406, 22, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   70   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_gb_emlrtBCI">gb_emlrtBCI</A> = <B>{</B> -1, -1, 406, 34, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   71   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_hb_emlrtBCI">hb_emlrtBCI</A> = <B>{</B> -1, -1, 304, 31, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   72   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_ib_emlrtBCI">ib_emlrtBCI</A> = <B>{</B> -1, -1, 304, 36, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   73   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_jb_emlrtBCI">jb_emlrtBCI</A> = <B>{</B> -1, -1, 304, 41, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   74   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_kb_emlrtBCI">kb_emlrtBCI</A> = <B>{</B> -1, -1, 305, 35, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   75   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_lb_emlrtBCI">lb_emlrtBCI</A> = <B>{</B> -1, -1, 305, 40, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   76   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> emlrtBCInfo <A NAME="var_mb_emlrtBCI">mb_emlrtBCI</A> = <B>{</B> -1, -1, 305, 45, <FONT COLOR="#1122ff">&quot;&quot;</FONT>, <FONT COLOR="#1122ff">&quot;eml_setop&quot;</FONT>, <FONT COLOR="#1122ff">&quot;D:/Program Files/MATLAB/R2011a/toolbox/eml/lib/matlab/ops/eml_setop.m&quot;</FONT>, 0 <B>}</B>;
+<FONT COLOR="#888888"><I>   77   </I></FONT>
+<FONT COLOR="#888888"><I>   78   </I></FONT><FONT COLOR="#117755"><I>/* Function Declarations */</I></FONT>
+<FONT COLOR="#888888"><I>   79   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>void</B></FONT> <A HREF="intersect_c.html#fcn_eml_error" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_eml_error');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">eml_error</FONT></A>(<FONT COLOR="#112266"><B>void</B></FONT>);
+<FONT COLOR="#888888"><I>   80   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> mxArray *<A HREF="intersect_c.html#fcn_message" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_message');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">message</FONT></A>(<FONT COLOR="#112266"><B>const</B></FONT> mxArray *b, emlrtMCInfo *location);
+<FONT COLOR="#888888"><I>   81   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> uint8_T <A HREF="intersect_c.html#fcn_relop_rows" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_relop_rows');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">relop_rows</FONT></A>(<FONT COLOR="#112266"><B>const</B></FONT> boolean_T a_data[74], <FONT COLOR="#112266"><B>const</B></FONT> int32_T a_sizes[2], int32_T arow, <FONT COLOR="#112266"><B>const</B></FONT> boolean_T b_data[15978598], <FONT COLOR="#112266"><B>const</B></FONT> int32_T b_sizes[2], int32_T brow);
+<FONT COLOR="#888888"><I>   82   </I></FONT>
+<FONT COLOR="#888888"><I>   83   </I></FONT><FONT COLOR="#117755"><I>/* Function Definitions */</I></FONT>
+<FONT COLOR="#888888"><I>   84   </I></FONT>
+<FONT COLOR="#888888"><I>   85   </I></FONT><FONT COLOR="#117755"><I>/*</I></FONT>
+<FONT COLOR="#888888"><I>   86   </I></FONT><FONT COLOR="#117755"><I> * </I></FONT>
+<FONT COLOR="#888888"><I>   87   </I></FONT><FONT COLOR="#117755"><I> */</I></FONT>
+<FONT COLOR="#888888"><I>   88   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>void</B></FONT> <A NAME="fcn_eml_error">eml_error</A>(<FONT COLOR="#112266"><B>void</B></FONT>)
+<FONT COLOR="#888888"><I>   89   </I></FONT><B>{</B>
+<FONT COLOR="#888888"><I>   90   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *y;
+<FONT COLOR="#888888"><I>   91   </I></FONT>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv1[2] = <B>{</B> 1, 37 <B>}</B>;
+<FONT COLOR="#888888"><I>   92   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *m1;
+<FONT COLOR="#888888"><I>   93   </I></FONT>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> char_T cv1[37] = <B>{</B> <FONT COLOR="#1122ff">'C'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'d'</FONT>, <FONT COLOR="#1122ff">'e'</FONT>, <FONT COLOR="#1122ff">'r'</FONT>, <FONT COLOR="#1122ff">':'</FONT>, <FONT COLOR="#1122ff">'t'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'l'</FONT>, <FONT COLOR="#1122ff">'b'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'x'</FONT>, <FONT COLOR="#1122ff">':'</FONT>, <FONT COLOR="#1122ff">'e'</FONT>, <FONT COLOR="#1122ff">'m'</FONT>, <FONT COLOR="#1122ff">'l'</FONT>, <FONT COLOR="#1122ff">'_'</FONT>, <FONT COLOR="#1122ff">'s'</FONT>, <FONT COLOR="#1122ff">'e'</FONT>, <FONT COLOR="#1122ff">'t'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'p'</FONT>, <FONT COLOR="#1122ff">'_'</FONT>, <FONT COLOR="#1122ff">'u'</FONT>, <FONT COLOR="#1122ff">'n'</FONT>, <FONT COLOR="#1122ff">'s'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'r'</FONT>, <FONT COLOR="#1122ff">'t'</FONT>, <FONT COLOR="#1122ff">'e'</FONT>, <FONT COLOR="#1122ff">'d'</FONT>, <FONT COLOR="#1122ff">'R'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'w'</FONT>, <FONT COLOR="#1122ff">'s'</FONT>, <FONT COLOR="#1122ff">'B'</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>   94   </I></FONT>    EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_y_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_y_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">y_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>   95   </I></FONT>    y = NULL;
+<FONT COLOR="#888888"><I>   96   </I></FONT>    m1 = mxCreateCharArray(2, iv1);
+<FONT COLOR="#888888"><I>   97   </I></FONT>    emlrtInitCharArray(37, m1, cv1);
+<FONT COLOR="#888888"><I>   98   </I></FONT>    emlrtAssign(&amp;y, m1);
+<FONT COLOR="#888888"><I>   99   </I></FONT>    <A HREF="matdiff_mexutil_c.html#fcn_error" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_error');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">error</FONT></A>(<A HREF="intersect_c.html#fcn_message" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_message');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">message</FONT></A>(y, &amp;<A HREF="intersect_c.html#var_l_emlrtMCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_l_emlrtMCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">l_emlrtMCI</FONT></A>), &amp;<A HREF="intersect_c.html#var_m_emlrtMCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_m_emlrtMCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">m_emlrtMCI</FONT></A>);
+<FONT COLOR="#888888"><I>  100   </I></FONT>    EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_y_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_y_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">y_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  101   </I></FONT><B>}</B>
+<FONT COLOR="#888888"><I>  102   </I></FONT>
+<FONT COLOR="#888888"><I>  103   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> mxArray *<A NAME="fcn_message">message</A>(<FONT COLOR="#112266"><B>const</B></FONT> mxArray *b, emlrtMCInfo *location)
+<FONT COLOR="#888888"><I>  104   </I></FONT><B>{</B>
+<FONT COLOR="#888888"><I>  105   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *pArray;
+<FONT COLOR="#888888"><I>  106   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *m4;
+<FONT COLOR="#888888"><I>  107   </I></FONT>    pArray = b;
+<FONT COLOR="#888888"><I>  108   </I></FONT>    <FONT COLOR="#112266"><B>return</B></FONT> emlrtCallMATLAB(1, &amp;m4, 1, &amp;pArray, <FONT COLOR="#1122ff">&quot;message&quot;</FONT>, TRUE, location);
+<FONT COLOR="#888888"><I>  109   </I></FONT><B>}</B>
+<FONT COLOR="#888888"><I>  110   </I></FONT>
+<FONT COLOR="#888888"><I>  111   </I></FONT><FONT COLOR="#117755"><I>/*</I></FONT>
+<FONT COLOR="#888888"><I>  112   </I></FONT><FONT COLOR="#117755"><I> * </I></FONT>
+<FONT COLOR="#888888"><I>  113   </I></FONT><FONT COLOR="#117755"><I> */</I></FONT>
+<FONT COLOR="#888888"><I>  114   </I></FONT><FONT COLOR="#112266"><B>static</B></FONT> uint8_T <A NAME="fcn_relop_rows">relop_rows</A>(<FONT COLOR="#112266"><B>const</B></FONT> boolean_T a_data[74], <FONT COLOR="#112266"><B>const</B></FONT> int32_T a_sizes[2], int32_T arow, <FONT COLOR="#112266"><B>const</B></FONT> boolean_T b_data[15978598], <FONT COLOR="#112266"><B>const</B></FONT> int32_T b_sizes[2], int32_T brow)
+<FONT COLOR="#888888"><I>  115   </I></FONT><B>{</B>
+<FONT COLOR="#888888"><I>  116   </I></FONT>    uint8_T p;
+<FONT COLOR="#888888"><I>  117   </I></FONT>    int32_T k;
+<FONT COLOR="#888888"><I>  118   </I></FONT>    int32_T exitg1;
+<FONT COLOR="#888888"><I>  119   </I></FONT>    boolean_T b_p;
+<FONT COLOR="#888888"><I>  120   </I></FONT>    k = 1;
+<FONT COLOR="#888888"><I>  121   </I></FONT>    <FONT COLOR="#112266"><B>do</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  122   </I></FONT>        exitg1 = 0U;
+<FONT COLOR="#888888"><I>  123   </I></FONT>        <FONT COLOR="#112266"><B>if</B></FONT> (k &lt;= a_sizes[1]) <B>{</B>
+<FONT COLOR="#888888"><I>  124   </I></FONT>            emlrtDynamicBoundsCheckR2011a(k, 1, a_sizes[1], &amp;<A HREF="intersect_c.html#var_hb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_hb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">hb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  125   </I></FONT>            emlrtDynamicBoundsCheckR2011a(brow, 1, b_sizes[0], &amp;<A HREF="intersect_c.html#var_ib_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_ib_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">ib_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  126   </I></FONT>            emlrtDynamicBoundsCheckR2011a(k, 1, b_sizes[1], &amp;<A HREF="intersect_c.html#var_jb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_jb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">jb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  127   </I></FONT>            <FONT COLOR="#112266"><B>if</B></FONT> (a_data[a_sizes[0] * (k - 1)] == b_data[(brow + b_sizes[0] * (k - 1)) - 1]) <B>{</B>
+<FONT COLOR="#888888"><I>  128   </I></FONT>                k++;
+<FONT COLOR="#888888"><I>  129   </I></FONT>            <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  130   </I></FONT>                emlrtDynamicBoundsCheckR2011a(k, 1, a_sizes[1], &amp;<A HREF="intersect_c.html#var_kb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_kb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">kb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  131   </I></FONT>                emlrtDynamicBoundsCheckR2011a(brow, 1, b_sizes[0], &amp;<A HREF="intersect_c.html#var_lb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_lb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">lb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  132   </I></FONT>                emlrtDynamicBoundsCheckR2011a(k, 1, b_sizes[1], &amp;<A HREF="intersect_c.html#var_mb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_mb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">mb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  133   </I></FONT>                <FONT COLOR="#112266"><B>if</B></FONT> (a_data[a_sizes[0] * (k - 1)] &lt; b_data[(brow + b_sizes[0] * (k - 1)) - 1]) <B>{</B>
+<FONT COLOR="#888888"><I>  134   </I></FONT>                    b_p = TRUE;
+<FONT COLOR="#888888"><I>  135   </I></FONT>                <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  136   </I></FONT>                    b_p = FALSE;
+<FONT COLOR="#888888"><I>  137   </I></FONT>                <B>}</B>
+<FONT COLOR="#888888"><I>  138   </I></FONT>                <FONT COLOR="#112266"><B>if</B></FONT> (b_p) <B>{</B>
+<FONT COLOR="#888888"><I>  139   </I></FONT>                    p = 1;
+<FONT COLOR="#888888"><I>  140   </I></FONT>                <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  141   </I></FONT>                    p = 2;
+<FONT COLOR="#888888"><I>  142   </I></FONT>                <B>}</B>
+<FONT COLOR="#888888"><I>  143   </I></FONT>                exitg1 = 1U;
+<FONT COLOR="#888888"><I>  144   </I></FONT>            <B>}</B>
+<FONT COLOR="#888888"><I>  145   </I></FONT>        <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  146   </I></FONT>            p = 0;
+<FONT COLOR="#888888"><I>  147   </I></FONT>            exitg1 = 1U;
+<FONT COLOR="#888888"><I>  148   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  149   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>while</B></FONT> (exitg1 == 0U);
+<FONT COLOR="#888888"><I>  150   </I></FONT>    <FONT COLOR="#112266"><B>return</B></FONT> p;
+<FONT COLOR="#888888"><I>  151   </I></FONT><B>}</B>
+<FONT COLOR="#888888"><I>  152   </I></FONT>
+<FONT COLOR="#888888"><I>  153   </I></FONT><FONT COLOR="#117755"><I>/*</I></FONT>
+<FONT COLOR="#888888"><I>  154   </I></FONT><FONT COLOR="#117755"><I> * </I></FONT>
+<FONT COLOR="#888888"><I>  155   </I></FONT><FONT COLOR="#117755"><I> */</I></FONT>
+<FONT COLOR="#888888"><I>  156   </I></FONT><FONT COLOR="#112266"><B>void</B></FONT> <A NAME="fcn_intersect">intersect</A>(<FONT COLOR="#112266"><B>const</B></FONT> boolean_T varargin_1_data[74], <FONT COLOR="#112266"><B>const</B></FONT> int32_T varargin_1_sizes[2], <FONT COLOR="#112266"><B>const</B></FONT> boolean_T varargin_2_data[15978598], <FONT COLOR="#112266"><B>const</B></FONT> int32_T varargin_2_sizes[2], boolean_T c_data[74], int32_T c_sizes[2], real_T ia_data[1], int32_T ia_sizes[1], real_T ib_data[1], int32_T ib_sizes[1])
+<FONT COLOR="#888888"><I>  157   </I></FONT><B>{</B>
+<FONT COLOR="#888888"><I>  158   </I></FONT>    boolean_T b0;
+<FONT COLOR="#888888"><I>  159   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *y;
+<FONT COLOR="#888888"><I>  160   </I></FONT>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv0[2] = <B>{</B> 1, 36 <B>}</B>;
+<FONT COLOR="#888888"><I>  161   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *m0;
+<FONT COLOR="#888888"><I>  162   </I></FONT>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> char_T cv0[36] = <B>{</B> <FONT COLOR="#1122ff">'C'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'d'</FONT>, <FONT COLOR="#1122ff">'e'</FONT>, <FONT COLOR="#1122ff">'r'</FONT>, <FONT COLOR="#1122ff">':'</FONT>, <FONT COLOR="#1122ff">'M'</FONT>, <FONT COLOR="#1122ff">'A'</FONT>, <FONT COLOR="#1122ff">'T'</FONT>, <FONT COLOR="#1122ff">'L'</FONT>, <FONT COLOR="#1122ff">'A'</FONT>, <FONT COLOR="#1122ff">'B'</FONT>, <FONT COLOR="#1122ff">':'</FONT>, <FONT COLOR="#1122ff">'s'</FONT>, <FONT COLOR="#1122ff">'e'</FONT>, <FONT COLOR="#1122ff">'t'</FONT>, <FONT COLOR="#1122ff">'x'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'r'</FONT>, <FONT COLOR="#1122ff">'_'</FONT>, <FONT COLOR="#1122ff">'A'</FONT>, <FONT COLOR="#1122ff">'a'</FONT>, <FONT COLOR="#1122ff">'n'</FONT>, <FONT COLOR="#1122ff">'d'</FONT>, <FONT COLOR="#1122ff">'B'</FONT>, <FONT COLOR="#1122ff">'C'</FONT>, <FONT COLOR="#1122ff">'o'</FONT>, <FONT COLOR="#1122ff">'l'</FONT>, <FONT COLOR="#1122ff">'n'</FONT>, <FONT COLOR="#1122ff">'u'</FONT>, <FONT COLOR="#1122ff">'m'</FONT>, <FONT COLOR="#1122ff">'A'</FONT>, <FONT COLOR="#1122ff">'g'</FONT>, <FONT COLOR="#1122ff">'r'</FONT>, <FONT COLOR="#1122ff">'e'</FONT>, <FONT COLOR="#1122ff">'e'</FONT> <B>}</B>;
+<FONT COLOR="#888888"><I>  163   </I></FONT>    int32_T ncmax;
+<FONT COLOR="#888888"><I>  164   </I></FONT>    int32_T nc;
+<FONT COLOR="#888888"><I>  165   </I></FONT>    boolean_T b_y;
+<FONT COLOR="#888888"><I>  166   </I></FONT>    int32_T coloffset;
+<FONT COLOR="#888888"><I>  167   </I></FONT>    int32_T k;
+<FONT COLOR="#888888"><I>  168   </I></FONT>    int32_T tmp_data[74];
+<FONT COLOR="#888888"><I>  169   </I></FONT>    int32_T col_data[74];
+<FONT COLOR="#888888"><I>  170   </I></FONT>    int32_T nm1;
+<FONT COLOR="#888888"><I>  171   </I></FONT>    boolean_T exitg3;
+<FONT COLOR="#888888"><I>  172   </I></FONT>    boolean_T p;
+<FONT COLOR="#888888"><I>  173   </I></FONT>    int32_T i2;
+<FONT COLOR="#888888"><I>  174   </I></FONT>    boolean_T exitg4;
+<FONT COLOR="#888888"><I>  175   </I></FONT>    int32_T c;
+<FONT COLOR="#888888"><I>  176   </I></FONT>    int32_T b_c;
+<FONT COLOR="#888888"><I>  177   </I></FONT>    boolean_T exitg1;
+<FONT COLOR="#888888"><I>  178   </I></FONT>    int32_T exitg2;
+<FONT COLOR="#888888"><I>  179   </I></FONT>    uint8_T r;
+<FONT COLOR="#888888"><I>  180   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *c_y;
+<FONT COLOR="#888888"><I>  181   </I></FONT>    boolean_T b_c_data[74];
+<FONT COLOR="#888888"><I>  182   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *d_y;
+<FONT COLOR="#888888"><I>  183   </I></FONT>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *e_y;
+<FONT COLOR="#888888"><I>  184   </I></FONT>    int32_T b_ib_data[1];
+<FONT COLOR="#888888"><I>  185   </I></FONT>    EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_f_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_f_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">f_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  186   </I></FONT>    EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_g_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_g_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">g_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  187   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (varargin_1_sizes[1] == varargin_2_sizes[1]) <B>{</B>
+<FONT COLOR="#888888"><I>  188   </I></FONT>        b0 = TRUE;
+<FONT COLOR="#888888"><I>  189   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  190   </I></FONT>        b0 = FALSE;
+<FONT COLOR="#888888"><I>  191   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  192   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (b0) <B>{</B>
+<FONT COLOR="#888888"><I>  193   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  194   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_p_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_p_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">p_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  195   </I></FONT>        y = NULL;
+<FONT COLOR="#888888"><I>  196   </I></FONT>        m0 = mxCreateCharArray(2, iv0);
+<FONT COLOR="#888888"><I>  197   </I></FONT>        emlrtInitCharArray(36, m0, cv0);
+<FONT COLOR="#888888"><I>  198   </I></FONT>        emlrtAssign(&amp;y, m0);
+<FONT COLOR="#888888"><I>  199   </I></FONT>        <A HREF="matdiff_mexutil_c.html#fcn_error" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_error');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">error</FONT></A>(<A HREF="intersect_c.html#fcn_message" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_message');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">message</FONT></A>(y, &amp;<A HREF="intersect_c.html#var_c_emlrtMCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_emlrtMCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_emlrtMCI</FONT></A>), &amp;<A HREF="intersect_c.html#var_d_emlrtMCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_d_emlrtMCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">d_emlrtMCI</FONT></A>);
+<FONT COLOR="#888888"><I>  200   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_p_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_p_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">p_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  201   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  202   </I></FONT>    ncmax = muIntScalarMin_sint32(1, varargin_2_sizes[0]);
+<FONT COLOR="#888888"><I>  203   </I></FONT>    c_sizes[0] = (int32_T)(int8_T)ncmax;
+<FONT COLOR="#888888"><I>  204   </I></FONT>    c_sizes[1] = (int32_T)(int8_T)muIntScalarMin_sint32(varargin_1_sizes[1], varargin_2_sizes[1]);
+<FONT COLOR="#888888"><I>  205   </I></FONT>    nc = 0;
+<FONT COLOR="#888888"><I>  206   </I></FONT>    ia_sizes[0] = ncmax;
+<FONT COLOR="#888888"><I>  207   </I></FONT>    ib_sizes[0] = ncmax;
+<FONT COLOR="#888888"><I>  208   </I></FONT>    EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_o_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_o_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">o_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  209   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (varargin_1_sizes[1] == 0) <B>{</B>
+<FONT COLOR="#888888"><I>  210   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  211   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_q_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_q_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">q_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  212   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_r_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">r_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  213   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_t_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">t_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  214   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_u_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">u_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  215   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_u_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">u_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  216   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_t_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">t_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  217   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_r_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">r_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  218   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_q_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_q_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">q_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  219   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  220   </I></FONT>    EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_o_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_o_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">o_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  221   </I></FONT>    EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_n_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_n_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">n_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  222   </I></FONT>    b_y = TRUE;
+<FONT COLOR="#888888"><I>  223   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> ((varargin_2_sizes[0] == 0) || (varargin_2_sizes[1] == 0)) <B>{</B>
+<FONT COLOR="#888888"><I>  224   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  225   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_w_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_w_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">w_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  226   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_r_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">r_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  227   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_t_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">t_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  228   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_u_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">u_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  229   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_u_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">u_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  230   </I></FONT>        coloffset = varargin_2_sizes[1] - 1;
+<FONT COLOR="#888888"><I>  231   </I></FONT>        <FONT COLOR="#112266"><B>for</B></FONT> (k = 0; k &lt;= coloffset; k++) <B>{</B>
+<FONT COLOR="#888888"><I>  232   </I></FONT>            tmp_data[k] = 1 + k;
+<FONT COLOR="#888888"><I>  233   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  234   </I></FONT>        coloffset = varargin_2_sizes[1] - 1;
+<FONT COLOR="#888888"><I>  235   </I></FONT>        <FONT COLOR="#112266"><B>for</B></FONT> (k = 0; k &lt;= coloffset; k++) <B>{</B>
+<FONT COLOR="#888888"><I>  236   </I></FONT>            col_data[k] = tmp_data[k];
+<FONT COLOR="#888888"><I>  237   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  238   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_t_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">t_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  239   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_r_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">r_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  240   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_w_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_w_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">w_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  241   </I></FONT>        nm1 = varargin_2_sizes[0] - 1;
+<FONT COLOR="#888888"><I>  242   </I></FONT>        k = 1;
+<FONT COLOR="#888888"><I>  243   </I></FONT>        exitg3 = 0U;
+<FONT COLOR="#888888"><I>  244   </I></FONT>        <FONT COLOR="#112266"><B>while</B></FONT> ((exitg3 == 0U) &amp;&amp; (k &lt;= nm1)) <B>{</B>
+<FONT COLOR="#888888"><I>  245   </I></FONT>            EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_x_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_x_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">x_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  246   </I></FONT>            p = TRUE;
+<FONT COLOR="#888888"><I>  247   </I></FONT>            i2 = 1;
+<FONT COLOR="#888888"><I>  248   </I></FONT>            exitg4 = 0U;
+<FONT COLOR="#888888"><I>  249   </I></FONT>            <FONT COLOR="#112266"><B>while</B></FONT> ((exitg4 == 0U) &amp;&amp; (i2 &lt;= varargin_2_sizes[1])) <B>{</B>
+<FONT COLOR="#888888"><I>  250   </I></FONT>                emlrtDynamicBoundsCheckR2011a(i2, 1, varargin_2_sizes[1], &amp;<A HREF="intersect_c.html#var_s_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_s_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">s_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  251   </I></FONT>                coloffset = (col_data[i2 - 1] - 1) * varargin_2_sizes[0];
+<FONT COLOR="#888888"><I>  252   </I></FONT>                c = (coloffset + k) - 1;
+<FONT COLOR="#888888"><I>  253   </I></FONT>                emlrtDynamicBoundsCheckR2011a(coloffset + k, 1, varargin_2_sizes[0] * varargin_2_sizes[1], &amp;<A HREF="intersect_c.html#var_r_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_r_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">r_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  254   </I></FONT>                b_c = coloffset + k;
+<FONT COLOR="#888888"><I>  255   </I></FONT>                emlrtDynamicBoundsCheckR2011a((coloffset + k) + 1, 1, varargin_2_sizes[0] * varargin_2_sizes[1], &amp;<A HREF="intersect_c.html#var_q_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_q_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">q_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  256   </I></FONT>                <FONT COLOR="#112266"><B>if</B></FONT> (varargin_2_data[c] == varargin_2_data[b_c]) <B>{</B>
+<FONT COLOR="#888888"><I>  257   </I></FONT>                    b0 = TRUE;
+<FONT COLOR="#888888"><I>  258   </I></FONT>                <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  259   </I></FONT>                    b0 = FALSE;
+<FONT COLOR="#888888"><I>  260   </I></FONT>                <B>}</B>
+<FONT COLOR="#888888"><I>  261   </I></FONT>                <FONT COLOR="#112266"><B>if</B></FONT> (!b0) <B>{</B>
+<FONT COLOR="#888888"><I>  262   </I></FONT>                    <FONT COLOR="#112266"><B>if</B></FONT> (varargin_2_data[c] &lt;= varargin_2_data[b_c]) <B>{</B>
+<FONT COLOR="#888888"><I>  263   </I></FONT>                        p = TRUE;
+<FONT COLOR="#888888"><I>  264   </I></FONT>                    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  265   </I></FONT>                        p = FALSE;
+<FONT COLOR="#888888"><I>  266   </I></FONT>                    <B>}</B>
+<FONT COLOR="#888888"><I>  267   </I></FONT>                    exitg4 = 1U;
+<FONT COLOR="#888888"><I>  268   </I></FONT>                <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  269   </I></FONT>                    i2++;
+<FONT COLOR="#888888"><I>  270   </I></FONT>                <B>}</B>
+<FONT COLOR="#888888"><I>  271   </I></FONT>            <B>}</B>
+<FONT COLOR="#888888"><I>  272   </I></FONT>            EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_x_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_x_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">x_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  273   </I></FONT>            <FONT COLOR="#112266"><B>if</B></FONT> (!p) <B>{</B>
+<FONT COLOR="#888888"><I>  274   </I></FONT>                b_y = FALSE;
+<FONT COLOR="#888888"><I>  275   </I></FONT>                exitg3 = 1U;
+<FONT COLOR="#888888"><I>  276   </I></FONT>            <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  277   </I></FONT>                k++;
+<FONT COLOR="#888888"><I>  278   </I></FONT>            <B>}</B>
+<FONT COLOR="#888888"><I>  279   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  280   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  281   </I></FONT>    EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_n_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_n_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">n_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  282   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (!b_y) <B>{</B>
+<FONT COLOR="#888888"><I>  283   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_m_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_m_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">m_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  284   </I></FONT>        <A HREF="intersect_c.html#fcn_eml_error" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_eml_error');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">eml_error</FONT></A>();
+<FONT COLOR="#888888"><I>  285   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_m_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_m_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">m_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  286   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  287   </I></FONT>    nm1 = 1;
+<FONT COLOR="#888888"><I>  288   </I></FONT>    i2 = 1;
+<FONT COLOR="#888888"><I>  289   </I></FONT>    <FONT COLOR="#112266"><B>while</B></FONT> ((nm1 &lt;= 1) &amp;&amp; (i2 &lt;= varargin_2_sizes[0])) <B>{</B>
+<FONT COLOR="#888888"><I>  290   </I></FONT>        exitg1 = 0U;
+<FONT COLOR="#888888"><I>  291   </I></FONT>        <FONT COLOR="#112266"><B>while</B></FONT> ((exitg1 == 0U) &amp;&amp; (i2 &lt; varargin_2_sizes[0])) <B>{</B>
+<FONT COLOR="#888888"><I>  292   </I></FONT>            EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_l_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_l_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">l_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  293   </I></FONT>            k = 1;
+<FONT COLOR="#888888"><I>  294   </I></FONT>            <FONT COLOR="#112266"><B>do</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  295   </I></FONT>                exitg2 = 0U;
+<FONT COLOR="#888888"><I>  296   </I></FONT>                <FONT COLOR="#112266"><B>if</B></FONT> (k &lt;= varargin_2_sizes[1]) <B>{</B>
+<FONT COLOR="#888888"><I>  297   </I></FONT>                    emlrtDynamicBoundsCheckR2011a(k, 1, varargin_2_sizes[1], &amp;<A HREF="intersect_c.html#var_u_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">u_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  298   </I></FONT>                    emlrtDynamicBoundsCheckR2011a(i2 + 1, 1, varargin_2_sizes[0], &amp;<A HREF="intersect_c.html#var_t_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">t_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  299   </I></FONT>                    emlrtDynamicBoundsCheckR2011a(k, 1, varargin_2_sizes[1], &amp;<A HREF="intersect_c.html#var_w_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_w_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">w_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  300   </I></FONT>                    emlrtDynamicBoundsCheckR2011a(i2, 1, varargin_2_sizes[0], &amp;<A HREF="intersect_c.html#var_v_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_v_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">v_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  301   </I></FONT>                    <FONT COLOR="#112266"><B>if</B></FONT> (varargin_2_data[i2 + varargin_2_sizes[0] * (k - 1)] == varargin_2_data[(i2 + varargin_2_sizes[0] * (k - 1)) - 1]) <B>{</B>
+<FONT COLOR="#888888"><I>  302   </I></FONT>                        k++;
+<FONT COLOR="#888888"><I>  303   </I></FONT>                    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  304   </I></FONT>                        emlrtDynamicBoundsCheckR2011a(k, 1, varargin_2_sizes[1], &amp;<A HREF="intersect_c.html#var_y_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_y_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">y_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  305   </I></FONT>                        emlrtDynamicBoundsCheckR2011a(i2 + 1, 1, varargin_2_sizes[0], &amp;<A HREF="intersect_c.html#var_x_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_x_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">x_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  306   </I></FONT>                        emlrtDynamicBoundsCheckR2011a(k, 1, varargin_2_sizes[1], &amp;<A HREF="intersect_c.html#var_bb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_bb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">bb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  307   </I></FONT>                        emlrtDynamicBoundsCheckR2011a(i2, 1, varargin_2_sizes[0], &amp;<A HREF="intersect_c.html#var_ab_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_ab_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">ab_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  308   </I></FONT>                        <FONT COLOR="#112266"><B>if</B></FONT> (varargin_2_data[i2 + varargin_2_sizes[0] * (k - 1)] &lt; varargin_2_data[(i2 + varargin_2_sizes[0] * (k - 1)) - 1]) <B>{</B>
+<FONT COLOR="#888888"><I>  309   </I></FONT>                            p = TRUE;
+<FONT COLOR="#888888"><I>  310   </I></FONT>                        <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  311   </I></FONT>                            p = FALSE;
+<FONT COLOR="#888888"><I>  312   </I></FONT>                        <B>}</B>
+<FONT COLOR="#888888"><I>  313   </I></FONT>                        <FONT COLOR="#112266"><B>if</B></FONT> (p) <B>{</B>
+<FONT COLOR="#888888"><I>  314   </I></FONT>                            r = 1;
+<FONT COLOR="#888888"><I>  315   </I></FONT>                        <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  316   </I></FONT>                            r = 2;
+<FONT COLOR="#888888"><I>  317   </I></FONT>                        <B>}</B>
+<FONT COLOR="#888888"><I>  318   </I></FONT>                        exitg2 = 1U;
+<FONT COLOR="#888888"><I>  319   </I></FONT>                    <B>}</B>
+<FONT COLOR="#888888"><I>  320   </I></FONT>                <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  321   </I></FONT>                    r = 0;
+<FONT COLOR="#888888"><I>  322   </I></FONT>                    exitg2 = 1U;
+<FONT COLOR="#888888"><I>  323   </I></FONT>                <B>}</B>
+<FONT COLOR="#888888"><I>  324   </I></FONT>            <B>}</B> <FONT COLOR="#112266"><B>while</B></FONT> (exitg2 == 0U);
+<FONT COLOR="#888888"><I>  325   </I></FONT>            EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_l_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_l_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">l_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  326   </I></FONT>            <FONT COLOR="#112266"><B>if</B></FONT> (r == 0) <B>{</B>
+<FONT COLOR="#888888"><I>  327   </I></FONT>                i2++;
+<FONT COLOR="#888888"><I>  328   </I></FONT>            <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  329   </I></FONT>                exitg1 = 1U;
+<FONT COLOR="#888888"><I>  330   </I></FONT>            <B>}</B>
+<FONT COLOR="#888888"><I>  331   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  332   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_k_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_k_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">k_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  333   </I></FONT>        r = <A HREF="intersect_c.html#fcn_relop_rows" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_relop_rows');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">relop_rows</FONT></A>(varargin_1_data, varargin_1_sizes, 1, varargin_2_data, varargin_2_sizes, i2);
+<FONT COLOR="#888888"><I>  334   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_k_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_k_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">k_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  335   </I></FONT>        <FONT COLOR="#112266"><B>if</B></FONT> (r == 0) <B>{</B>
+<FONT COLOR="#888888"><I>  336   </I></FONT>            nc++;
+<FONT COLOR="#888888"><I>  337   </I></FONT>            <FONT COLOR="#112266"><B>for</B></FONT> (k = 1; k &lt;= varargin_1_sizes[1]; k++) <B>{</B>
+<FONT COLOR="#888888"><I>  338   </I></FONT>                c_data[(emlrtDynamicBoundsCheckR2011a(nc, 1, c_sizes[0], &amp;<A HREF="intersect_c.html#var_eb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_eb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">eb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>) + c_sizes[0] * (emlrtDynamicBoundsCheckR2011a(k, 1, c_sizes[1], &amp;<A HREF="intersect_c.html#var_fb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_fb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">fb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>) - 1)) - 1] = varargin_1_data[varargin_1_sizes[0] * (emlrtDynamicBoundsCheckR2011a(k, 1, varargin_1_sizes[1], &amp;<A HREF="intersect_c.html#var_gb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_gb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">gb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>) - 1)];
+<FONT COLOR="#888888"><I>  339   </I></FONT>            <B>}</B>
+<FONT COLOR="#888888"><I>  340   </I></FONT>            ia_data[emlrtDynamicBoundsCheckR2011a(nc, 1, ia_sizes[0], &amp;<A HREF="intersect_c.html#var_cb_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_cb_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">cb_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>) - 1] = 1.0;
+<FONT COLOR="#888888"><I>  341   </I></FONT>            ib_data[emlrtDynamicBoundsCheckR2011a(nc, 1, ib_sizes[0], &amp;<A HREF="intersect_c.html#var_db_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_db_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">db_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>) - 1] = (real_T)i2;
+<FONT COLOR="#888888"><I>  342   </I></FONT>            nm1 = 2;
+<FONT COLOR="#888888"><I>  343   </I></FONT>            i2++;
+<FONT COLOR="#888888"><I>  344   </I></FONT>        <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <FONT COLOR="#112266"><B>if</B></FONT> (r == 1) <B>{</B>
+<FONT COLOR="#888888"><I>  345   </I></FONT>            nm1 = 2;
+<FONT COLOR="#888888"><I>  346   </I></FONT>        <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  347   </I></FONT>            i2++;
+<FONT COLOR="#888888"><I>  348   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  349   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  350   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (nc &lt;= ncmax) <B>{</B>
+<FONT COLOR="#888888"><I>  351   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  352   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_j_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_j_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">j_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  353   </I></FONT>        c_y = NULL;
+<FONT COLOR="#888888"><I>  354   </I></FONT>        m0 = mxCreateString(<FONT COLOR="#1122ff">&quot;Assertion failed.&quot;</FONT>);
+<FONT COLOR="#888888"><I>  355   </I></FONT>        emlrtAssign(&amp;c_y, m0);
+<FONT COLOR="#888888"><I>  356   </I></FONT>        <A HREF="matdiff_mexutil_c.html#fcn_error" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_error');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">error</FONT></A>(c_y, &amp;<A HREF="intersect_c.html#var_e_emlrtMCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtMCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">e_emlrtMCI</FONT></A>);
+<FONT COLOR="#888888"><I>  357   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_j_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_j_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">j_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  358   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  359   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (1 &gt; nc) <B>{</B>
+<FONT COLOR="#888888"><I>  360   </I></FONT>        k = -1;
+<FONT COLOR="#888888"><I>  361   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  362   </I></FONT>        emlrtDynamicBoundsCheckR2011a(1, 1, c_sizes[0], &amp;<A HREF="intersect_c.html#var_p_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_p_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">p_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  363   </I></FONT>        emlrtDynamicBoundsCheckR2011a(1, 1, c_sizes[0], &amp;<A HREF="intersect_c.html#var_o_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_o_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">o_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  364   </I></FONT>        k = 0;
+<FONT COLOR="#888888"><I>  365   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  366   </I></FONT>    c = k + 1;
+<FONT COLOR="#888888"><I>  367   </I></FONT>    i2 = c_sizes[1];
+<FONT COLOR="#888888"><I>  368   </I></FONT>    coloffset = c_sizes[1] - 1;
+<FONT COLOR="#888888"><I>  369   </I></FONT>    <FONT COLOR="#112266"><B>for</B></FONT> (b_c = 0; b_c &lt;= coloffset; b_c++) <B>{</B>
+<FONT COLOR="#888888"><I>  370   </I></FONT>        nm1 = 0;
+<FONT COLOR="#888888"><I>  371   </I></FONT>        <FONT COLOR="#112266"><B>while</B></FONT> (nm1 &lt;= k) <B>{</B>
+<FONT COLOR="#888888"><I>  372   </I></FONT>            b_c_data[c * b_c] = c_data[c_sizes[0] * b_c];
+<FONT COLOR="#888888"><I>  373   </I></FONT>            nm1 = 1;
+<FONT COLOR="#888888"><I>  374   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  375   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  376   </I></FONT>    c_sizes[0] = c;
+<FONT COLOR="#888888"><I>  377   </I></FONT>    c_sizes[1] = i2;
+<FONT COLOR="#888888"><I>  378   </I></FONT>    coloffset = i2 - 1;
+<FONT COLOR="#888888"><I>  379   </I></FONT>    <FONT COLOR="#112266"><B>for</B></FONT> (k = 0; k &lt;= coloffset; k++) <B>{</B>
+<FONT COLOR="#888888"><I>  380   </I></FONT>        nm1 = c - 1;
+<FONT COLOR="#888888"><I>  381   </I></FONT>        b_c = 0;
+<FONT COLOR="#888888"><I>  382   </I></FONT>        <FONT COLOR="#112266"><B>while</B></FONT> (b_c &lt;= nm1) <B>{</B>
+<FONT COLOR="#888888"><I>  383   </I></FONT>            c_data[c_sizes[0] * k] = b_c_data[c * k];
+<FONT COLOR="#888888"><I>  384   </I></FONT>            b_c = 1;
+<FONT COLOR="#888888"><I>  385   </I></FONT>        <B>}</B>
+<FONT COLOR="#888888"><I>  386   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  387   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (nc &lt;= ncmax) <B>{</B>
+<FONT COLOR="#888888"><I>  388   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  389   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_i_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_i_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">i_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  390   </I></FONT>        d_y = NULL;
+<FONT COLOR="#888888"><I>  391   </I></FONT>        m0 = mxCreateString(<FONT COLOR="#1122ff">&quot;Assertion failed.&quot;</FONT>);
+<FONT COLOR="#888888"><I>  392   </I></FONT>        emlrtAssign(&amp;d_y, m0);
+<FONT COLOR="#888888"><I>  393   </I></FONT>        <A HREF="matdiff_mexutil_c.html#fcn_error" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_error');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">error</FONT></A>(d_y, &amp;<A HREF="intersect_c.html#var_f_emlrtMCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_f_emlrtMCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">f_emlrtMCI</FONT></A>);
+<FONT COLOR="#888888"><I>  394   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_i_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_i_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">i_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  395   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  396   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (1 &gt; nc) <B>{</B>
+<FONT COLOR="#888888"><I>  397   </I></FONT>        nm1 = -1;
+<FONT COLOR="#888888"><I>  398   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  399   </I></FONT>        emlrtDynamicBoundsCheckR2011a(1, 1, ia_sizes[0], &amp;<A HREF="intersect_c.html#var_n_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_n_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">n_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  400   </I></FONT>        emlrtDynamicBoundsCheckR2011a(1, 1, ia_sizes[0], &amp;<A HREF="intersect_c.html#var_m_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_m_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">m_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  401   </I></FONT>        nm1 = 0;
+<FONT COLOR="#888888"><I>  402   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  403   </I></FONT>    ia_sizes[0] = nm1 + 1;
+<FONT COLOR="#888888"><I>  404   </I></FONT>    k = 0;
+<FONT COLOR="#888888"><I>  405   </I></FONT>    <FONT COLOR="#112266"><B>while</B></FONT> (k &lt;= nm1) <B>{</B>
+<FONT COLOR="#888888"><I>  406   </I></FONT>        ia_data[0] = 1.0;
+<FONT COLOR="#888888"><I>  407   </I></FONT>        k = 1;
+<FONT COLOR="#888888"><I>  408   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  409   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (nc &lt;= ncmax) <B>{</B>
+<FONT COLOR="#888888"><I>  410   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  411   </I></FONT>        EMLRTPUSHRTSTACK(&amp;<A HREF="intersect_c.html#var_h_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_h_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">h_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  412   </I></FONT>        e_y = NULL;
+<FONT COLOR="#888888"><I>  413   </I></FONT>        m0 = mxCreateString(<FONT COLOR="#1122ff">&quot;Assertion failed.&quot;</FONT>);
+<FONT COLOR="#888888"><I>  414   </I></FONT>        emlrtAssign(&amp;e_y, m0);
+<FONT COLOR="#888888"><I>  415   </I></FONT>        <A HREF="matdiff_mexutil_c.html#fcn_error" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_error');"  TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">error</FONT></A>(e_y, &amp;<A HREF="intersect_c.html#var_g_emlrtMCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_g_emlrtMCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">g_emlrtMCI</FONT></A>);
+<FONT COLOR="#888888"><I>  416   </I></FONT>        EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_h_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_h_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">h_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  417   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  418   </I></FONT>    <FONT COLOR="#112266"><B>if</B></FONT> (1 &gt; nc) <B>{</B>
+<FONT COLOR="#888888"><I>  419   </I></FONT>        nm1 = -1;
+<FONT COLOR="#888888"><I>  420   </I></FONT>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<FONT COLOR="#888888"><I>  421   </I></FONT>        emlrtDynamicBoundsCheckR2011a(1, 1, ib_sizes[0], &amp;<A HREF="intersect_c.html#var_l_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_l_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">l_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  422   </I></FONT>        emlrtDynamicBoundsCheckR2011a(1, 1, ib_sizes[0], &amp;<A HREF="intersect_c.html#var_k_emlrtBCI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_k_emlrtBCI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">k_emlrtBCI</FONT></A>, &amp;<A HREF="matdiff_mex_c.html#var_emlrtContextGlobal" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtContextGlobal');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrtContextGlobal</FONT></A>);
+<FONT COLOR="#888888"><I>  423   </I></FONT>        nm1 = 0;
+<FONT COLOR="#888888"><I>  424   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  425   </I></FONT>    k = 0;
+<FONT COLOR="#888888"><I>  426   </I></FONT>    <FONT COLOR="#112266"><B>while</B></FONT> (k &lt;= nm1) <B>{</B>
+<FONT COLOR="#888888"><I>  427   </I></FONT>        b_ib_data[0] = (int32_T)ib_data[0];
+<FONT COLOR="#888888"><I>  428   </I></FONT>        k = 1;
+<FONT COLOR="#888888"><I>  429   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  430   </I></FONT>    ib_sizes[0] = nm1 + 1;
+<FONT COLOR="#888888"><I>  431   </I></FONT>    k = 0;
+<FONT COLOR="#888888"><I>  432   </I></FONT>    <FONT COLOR="#112266"><B>while</B></FONT> (k &lt;= nm1) <B>{</B>
+<FONT COLOR="#888888"><I>  433   </I></FONT>        ib_data[0] = (real_T)b_ib_data[0];
+<FONT COLOR="#888888"><I>  434   </I></FONT>        k = 1;
+<FONT COLOR="#888888"><I>  435   </I></FONT>    <B>}</B>
+<FONT COLOR="#888888"><I>  436   </I></FONT>    EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_g_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_g_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">g_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  437   </I></FONT>    EMLRTPOPRTSTACK(&amp;<A HREF="intersect_c.html#var_f_emlrtRSI" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_f_emlrtRSI');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">f_emlrtRSI</FONT></A>);
+<FONT COLOR="#888888"><I>  438   </I></FONT><B>}</B>
+<FONT COLOR="#888888"><I>  439   </I></FONT><FONT COLOR="#117755"><I>/* End of code generation (intersect.c) */</I></FONT>
+<FONT COLOR="#888888"><I>  440   </I></FONT></PRE>
+</TD></TR></TABLE>
+</P>
+</BODY>
+</HTML>
